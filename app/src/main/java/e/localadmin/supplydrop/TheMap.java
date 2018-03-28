@@ -10,6 +10,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+
 public class TheMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -17,6 +19,9 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        AWSMobileClient.getInstance().initialize(this).execute();
+
         setContentView(R.layout.activity_the_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
