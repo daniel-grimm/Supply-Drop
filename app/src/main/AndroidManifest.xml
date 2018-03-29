@@ -44,7 +44,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".User_Home_Page" />
-        <activity android:name=".Greeting"></activity>
+        <activity android:name=".Greeting" />
+        <activity android:name=".TheDashboard"></activity>
     </application>
 
 </manifest>
