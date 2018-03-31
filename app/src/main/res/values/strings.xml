@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name">SupplyDrop</string>
-    <string name="title_activity_the_map">Map</string>
-    <string name="title_activity_sign_in_page">Sign in</string>
+    <!-- Titles and headers for the app. -->
+    <string name="app_name">Supply Drop</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="title_activity_individual_greeting">Welcome to Supply Drop</string>
+    <string name="title_activity_organization_greeting">Welcome Partner!</string>
+    <string name="title_activity_sign_in_page">Sign in or register</string>
+    <string name="title_activity_the_dashboard">The Dashboard</string>
+    <string name="title_activity_the_map">The Map</string>
+    <string name="title_activity_home_page">Home Page</string>
+
+    <!-- Strings related to login. -->
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
 </resources>
