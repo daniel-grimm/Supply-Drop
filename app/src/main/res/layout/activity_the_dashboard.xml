@@ -6,17 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".TheDashboard">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editText12"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="none"
-            android:text="The Dashboard" />
-    </LinearLayout>
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="none"
+                android:text="The Dashboard" />
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
