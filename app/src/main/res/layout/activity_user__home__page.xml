@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Supplies Request Form" />
+                android:text="@string/title_activity_home_page" />
 
             <EditText
                 android:id="@+id/food_header"
@@ -29,13 +29,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Food" />
+                android:text="@string/request_form_food_header" />
 
             <CheckBox
                 android:id="@+id/food_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/sleeping_stuff"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Sleeping Bag or Blanket"
+                android:text="@string/request_form_sleeping_stuff"
                 tools:layout_editor_absoluteX="122dp"
                 tools:layout_editor_absoluteY="504dp" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/sleeping_stuff_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/socks_header"
@@ -59,13 +59,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Socks" />
+                android:text="@string/request_form_socks_header" />
 
             <CheckBox
                 android:id="@+id/socks_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/underwear_header"
@@ -73,13 +73,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Underwear" />
+                android:text="@string/request_form_underwear_header" />
 
             <CheckBox
                 android:id="@+id/underwear_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/coat_header"
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Coat" />
+                android:text="@string/request_form_coat_header" />
 
             <RadioGroup
                 android:id="@+id/coat_size_header"
@@ -99,28 +99,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Small" />
+                    android:text="@string/size_small" />
 
                 <RadioButton
                     android:id="@+id/medium_coat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Medium" />
+                    android:text="@string/size_medium" />
 
                 <RadioButton
                     android:id="@+id/large_coat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Large" />
+                    android:text="@string/size_large" />
 
                 <RadioButton
                     android:id="@+id/extra_large_coat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Extra Large" />
+                    android:text="@string/size_extra_large" />
 
             </RadioGroup>
 
@@ -131,13 +131,13 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Toothbrush" />
+                android:text="@string/request_form_toothbrush_header" />
 
             <CheckBox
                 android:id="@+id/toothbrush_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/toothpaste_header"
@@ -145,13 +145,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Toothpaste" />
+                android:text="@string/request_form_toothpaste_header" />
 
             <CheckBox
                 android:id="@+id/toothpaste_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/soap_header"
@@ -159,13 +159,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Soap" />
+                android:text="@string/request_form_soap_header" />
 
             <CheckBox
                 android:id="@+id/soap_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes" />
+                android:text="@string/request_form_single_checkbox" />
 
             <EditText
                 android:id="@+id/location_header"
@@ -173,13 +173,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="none"
-                android:text="Location" />
+                android:text="@string/request_form_location_header" />
 
             <Button
                 android:id="@+id/submit_form_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit" />
+                android:text="@string/submit_button" />
 
         </LinearLayout>
     </ScrollView>

@@ -1,15 +1,8 @@
 <resources>
-    <!-- Titles and headers for the app. -->
-    <string name="app_name">Supply Drop</string>
-
-    <string name="title_activity_individual_greeting">Welcome to Supply Drop</string>
-    <string name="title_activity_organization_greeting">Welcome Partner!</string>
-    <string name="title_activity_sign_in_page">Sign in or register</string>
-    <string name="title_activity_the_dashboard">The Dashboard</string>
-    <string name="title_activity_the_map">The Map</string>
-    <string name="title_activity_home_page">Home Page</string>
 
     <!-- Global Strings -->
+    <string name="app_name">Supply Drop</string>
+
     <string name="size_small">Small</string>
     <string name="size_medium">Medium</string>
     <string name="size_large">Large</string>
@@ -18,12 +11,13 @@
     <string name="submit_button">Submit</string>
 
     <!-- activity_greeting.xml strings -->
-
+    <string name="title_activity_individual_greeting">Welcome to Supply Drop</string>
 
     <!-- activity_organization_greeting.xml strings -->
-
+    <string name="title_activity_organization_greeting">Welcome Partner!</string>
 
     <!-- activity_sign_in_page.xml strings -->
+    <string name="title_activity_sign_in_page">Sign in or register</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -31,13 +25,13 @@
     <string name="error_field_required">This field is required</string>
 
     <!-- activity_the_dashboard.xml strings -->
-
+    <string name="title_activity_the_dashboard">The Dashboard</string>
 
     <!-- activity_the_map.xml strings -->
-
+    <string name="title_activity_the_map">The Map</string>
 
     <!-- activity_user__home__page.xml strings -->
-    <string name="request_form_header">Supplies Request Form</string>
+    <string name="title_activity_home_page">Supplies Request Form</string>
     <string name="request_form_food_header">Food</string>
     <string name="request_form_single_checkbox">Yes</string>
     <string name="request_form_sleeping_stuff">Sleeping Bag or Blanket</string>
