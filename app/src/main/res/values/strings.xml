@@ -32,6 +32,8 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="action_register">Register</string>
+    <string name="error_username_already_exists">This username already exists</string>
+    <string name="permission_rationale">Permission granted</string>
 
     <!-- activity_the_dashboard.xml strings -->
     <string name="title_activity_the_dashboard">The Dashboard</string>

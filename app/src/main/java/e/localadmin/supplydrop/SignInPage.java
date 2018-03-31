@@ -172,7 +172,7 @@ public class SignInPage extends AppCompatActivity implements LoaderCallbacks<Cur
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError(getString(R.string.error_username_already_exists));
             focusView = mEmailView;
             cancel = true;
         }
