@@ -3,7 +3,7 @@ package e.localadmin.supplydrop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class IndividualHomePage extends AppCompatActivity {
+public class RequestForm extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

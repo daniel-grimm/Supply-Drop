@@ -9,10 +9,44 @@
     <string name="title_activity_the_map">The Map</string>
     <string name="title_activity_home_page">Home Page</string>
 
-    <!-- Strings related to login. -->
+    <!-- Global Strings -->
+    <string name="size_small">Small</string>
+    <string name="size_medium">Medium</string>
+    <string name="size_large">Large</string>
+    <string name="size_extra_large">Extra Large</string>
+
+    <string name="submit_button">Submit</string>
+
+    <!-- activity_greeting.xml strings -->
+
+
+    <!-- activity_organization_greeting.xml strings -->
+
+
+    <!-- activity_sign_in_page.xml strings -->
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+
+    <!-- activity_the_dashboard.xml strings -->
+
+
+    <!-- activity_the_map.xml strings -->
+
+
+    <!-- activity_user__home__page.xml strings -->
+    <string name="request_form_header">Supplies Request Form</string>
+    <string name="request_form_food_header">Food</string>
+    <string name="request_form_single_checkbox">Yes</string>
+    <string name="request_form_sleeping_stuff">Sleeping Bag or Blanket</string>
+    <string name="request_form_socks_header">Socks</string>
+    <string name="request_form_underwear_header">Underwear</string>
+    <string name="request_form_coat_header">Coat</string>
+    <string name="request_form_toothbrush_header">Toothbrush</string>
+    <string name="request_form_toothpaste_header">Toothpaste</string>
+    <string name="request_form_soap_header">Soap</string>
+    <string name="request_form_location_header">Location</string>
+
 </resources>
