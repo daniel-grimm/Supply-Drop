@@ -7,19 +7,33 @@
     tools:context=".OrganizationGreeting">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/greeting_message"
         android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:text="You'll be able to see where people are requesting supplies. Thanks for coming on board!"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="275dp" />
+        android:layout_marginStart="68dp"
+        android:text="@string/organization_greeting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_greeting" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/welcome_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Supply Drop!"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="184dp" />
+        android:layout_marginStart="100dp"
+        android:text="@string/welcome_greeting"
+        app:layout_constraintBottom_toTopOf="@+id/greeting_message"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/get_started_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/organization_greeting_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -10,11 +10,19 @@
 
     <string name="submit_button">Submit</string>
 
+    <string name="welcome_greeting">Welcome to Supply Drop!</string>
+
     <!-- activity_greeting.xml strings -->
     <string name="title_activity_individual_greeting">Welcome to Supply Drop</string>
+    <string name="individual_greeting_message">This app allows you to request supplies from
+        organizations in your community. Let's get started!</string>
+    <string name="individual_greeting_button">Get started</string>
 
     <!-- activity_organization_greeting.xml strings -->
     <string name="title_activity_organization_greeting">Welcome Partner!</string>
+    <string name="organization_greeting">You\'ll be able to see where people are requesting
+        supplies. Thanks for coming on board!</string>
+    <string name="organization_greeting_button">Get started</string>
 
     <!-- activity_sign_in_page.xml strings -->
     <string name="title_activity_sign_in_page">Sign in or register</string>
