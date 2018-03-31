@@ -25,15 +25,17 @@
     <string name="organization_greeting_button">Get started</string>
 
     <!-- activity_sign_in_page.xml strings -->
-    <string name="title_activity_sign_in_page">Sign in or register</string>
+    <string name="title_activity_sign_in_page">Sign In or Register</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="action_register">Register</string>
 
     <!-- activity_the_dashboard.xml strings -->
     <string name="title_activity_the_dashboard">The Dashboard</string>
+    <string name="switch_to_map_button">Map</string>
 
     <!-- activity_the_map.xml strings -->
     <string name="title_activity_the_map">The Map</string>
