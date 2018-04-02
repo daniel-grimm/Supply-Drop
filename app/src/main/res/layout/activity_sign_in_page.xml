@@ -67,18 +67,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/prompt_organization" />
+                    android:text="@string/prompt_organization"
+                    android:onClick="clicked"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/sign_in_button"
-                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold"
                 android:onClick="signIn"/>
 
             <Button
