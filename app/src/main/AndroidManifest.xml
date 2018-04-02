@@ -42,22 +42,27 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RequestForm"
-            android:exported="true"/>
-        <activity android:name=".IndividualGreeting"
-            android:exported="true"/>
-        <activity android:name=".TheDashboard"
-            android:exported="true"/>
-        <activity android:name=".OrganizationGreeting"
-            android:exported="true"/>
+        <activity
+            android:name=".RequestForm"
+            android:exported="true" />
+        <activity
+            android:name=".IndividualGreeting"
+            android:exported="true" />
+        <activity
+            android:name=".TheDashboard"
+            android:exported="true" />
+        <activity
+            android:name=".OrganizationGreeting"
+            android:exported="true" />
         <activity
             android:name=".SignInPage"
-            android:label="@string/title_activity_sign_in_page"
-            android:exported="true"/>
+            android:exported="true"
+            android:label="@string/title_activity_sign_in_page" />
         <activity
             android:name=".TheMap"
-            android:label="@string/title_activity_the_map"
-            android:exported="true"></activity>
+            android:exported="true"
+            android:label="@string/title_activity_the_map" />
+        <activity android:name=".LoginError"></activity>
     </application>
 
 </manifest>
