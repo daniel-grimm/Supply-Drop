@@ -3,6 +3,7 @@ package e.localadmin.supplydrop;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 /**A login screen that offers login via username/password.*/
@@ -18,7 +19,7 @@ public class SignInPage extends AppCompatActivity {
 
     //This method signs in the user
     public void signIn(View view) {
-        if (validUser() && validPassword()) {
+        if (validUser()) {
             //Continue the sign in process
             if (!isClicked) {
                 //go to the request form
@@ -29,12 +30,19 @@ public class SignInPage extends AppCompatActivity {
             }
         } else {
             //error, go to the login error activity
-            startActivity(new Intent(SignInPage.this, LoginError.class));
+            Intent error = new Intent(SignInPage.this, LoginError.class);
+            error.putExtra("ERROR_MESSAGE", "Invalid Credentials. Please try again.");
+            startActivity(error);
         }
     }
 
     public void register(View view) {
         registerUser();
+        if (!validPassword()) {
+            Intent error = new Intent(SignInPage.this, LoginError.class);
+            error.putExtra("ERROR_MESSAGE", "Password is too short. Please try again.");
+            startActivity(error);
+        }
         if (!isClicked) {
             //go to the request form activity
             goToRequestFormActivity(view);
@@ -66,11 +74,13 @@ public class SignInPage extends AppCompatActivity {
         }
     }
 
+    /**Determines if the user is signing in for the first time.*/
     private boolean firstTimeSignIn() {
         //TODO: Implement calling AWS to determine if the user already exists.
         return true;
     }
 
+    /**Determines if the user is a valid user.*/
     private boolean validUser() {
         //TODO: Implement calling to AWS to determine if the user is a valid user
         return true;
@@ -85,10 +95,12 @@ public class SignInPage extends AppCompatActivity {
         }
     }
 
+    /**Registers the user in the database.*/
     private void registerUser() {
         return;
     }
 
+    /**Ensures that the password is a valid password.*/
     private boolean validPassword() {
         return false;
     }
