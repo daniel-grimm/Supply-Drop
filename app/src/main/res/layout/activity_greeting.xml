@@ -6,25 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".IndividualGreeting">
 
-    <TextView
-        android:id="@+id/welcome_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:text="@string/welcome_greeting"
-        app:layout_constraintBottom_toTopOf="@+id/welcome_message"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:layout_width="358dp"
+        android:layout_height="431dp">
 
-    <TextView
-        android:id="@+id/welcome_message"
-        android:layout_width="218dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:text="@string/individual_greeting_message"
-        app:layout_constraintBottom_toTopOf="@+id/get_started_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_header" />
+        <TextView
+            android:id="@+id/individual_greeting_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="250dp"
+            android:text="@string/individual_greeting_message"
+            app:layout_constraintBottom_toTopOf="@+id/get_started_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_header" />
+
+        <TextView
+            android:id="@+id/welcome_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="96dp"
+            android:text="@string/welcome_greeting"
+            app:layout_constraintBottom_toTopOf="@+id/individual_greeting_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/get_started_button"

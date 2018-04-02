@@ -1,5 +1,6 @@
 package e.localadmin.supplydrop;
 
+import android.app.DownloadManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,6 @@ public class IndividualGreeting extends AppCompatActivity {
     /**This method is called when the get started button is clicked.
      * This activity exits and then loads up the request form.*/
     public void goToRequestForm(View view) {
-        Intent requestFormPage = new Intent(this, RequestForm.class);
-        startActivity(requestFormPage);
+        startActivity(new Intent(IndividualGreeting.this, RequestForm.class));
     }
 }

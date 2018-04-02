@@ -13,7 +13,8 @@
     <string name="welcome_greeting">Welcome to Supply Drop!</string>
 
     <!-- activity_greeting.xml strings -->
-    <string name="title_activity_individual_greeting">Welcome to Supply Drop</string>
+    <string name="title_activity_individual_greeting">Welcome to Supply Drop\n\n\n\n\n\n
+        Hi there!</string>
     <string name="individual_greeting_message">This app allows you to request supplies from
         organizations in your community. Let's get started!</string>
     <string name="individual_greeting_button">Get started</string>
