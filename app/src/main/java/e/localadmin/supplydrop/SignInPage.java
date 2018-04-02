@@ -18,7 +18,7 @@ public class SignInPage extends AppCompatActivity {
 
     //This method signs in the user
     public void signIn(View view) {
-        if (validUser()) {
+        if (validUser() && validPassword()) {
             //Continue the sign in process
             if (!isClicked) {
                 //go to the request form
@@ -87,5 +87,9 @@ public class SignInPage extends AppCompatActivity {
 
     private void registerUser() {
         return;
+    }
+
+    private boolean validPassword() {
+        return false;
     }
 }
