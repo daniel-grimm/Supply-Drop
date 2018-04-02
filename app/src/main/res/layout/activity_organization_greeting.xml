@@ -6,25 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".OrganizationGreeting">
 
-    <TextView
-        android:id="@+id/greeting_message"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:text="@string/organization_greeting"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_greeting" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/welcome_greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:text="@string/welcome_greeting"
-        app:layout_constraintBottom_toTopOf="@+id/greeting_message"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/greeting_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="250dp"
+            android:text="@string/organization_greeting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_greeting" />
+
+        <TextView
+            android:id="@+id/welcome_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/welcome_greeting"
+            app:layout_constraintBottom_toTopOf="@+id/greeting_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/get_started_button"
@@ -33,6 +40,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/organization_greeting_button"
+        android:onClick="goToTheDashboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
