@@ -210,11 +210,23 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:text="@string/request_form_location_header"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
             <EditText
                 android:id="@+id/location_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/request_form_location_header"
+                android:hint="@string/request_form_prompt"
                 android:inputType="textPostalAddress" />
 
             <View

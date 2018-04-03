@@ -56,6 +56,7 @@
     <string name="request_form_toothpaste_header">Toothpaste</string>
     <string name="request_form_soap_header">Soap</string>
     <string name="request_form_location_header">Location</string>
+    <string name="request_form_prompt">Please enter here...</string>
 
     <!-- activity_login_error.xml strings -->
     <string name="login_error">Error logging in. Please try again.</string>
