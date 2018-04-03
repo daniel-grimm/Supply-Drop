@@ -62,6 +62,6 @@
     <string name="try_again_button">Try again</string>
 
     <!-- activity_request_form_error.xml strings -->
-
+    <string name="default_error">Unknown error.</string>
 
 </resources>

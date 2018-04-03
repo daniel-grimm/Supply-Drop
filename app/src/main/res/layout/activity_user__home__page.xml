@@ -17,21 +17,31 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
                 android:id="@+id/header"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="none"
                 android:text="@string/title_activity_home_page" />
 
-            <EditText
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <TextView
                 android:id="@+id/food_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="none"
-                android:text="@string/request_form_food_header" />
+                android:layout_height="match_parent"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:text="@string/request_form_food_header"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/food_checkbox"
@@ -39,15 +49,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/sleeping_stuff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="none"
+                android:layout_height="match_parent"
                 android:text="@string/request_form_sleeping_stuff"
-                tools:layout_editor_absoluteX="122dp"
-                tools:layout_editor_absoluteY="504dp" />
+                android:textColor="@android:color/black"
+                android:textSize="20dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/sleeping_stuff_checkbox"
@@ -55,13 +68,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/socks_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="none"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_socks_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/socks_checkbox"
@@ -69,13 +88,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/underwear_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="none"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_underwear_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/underwear_checkbox"
@@ -83,13 +108,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/coat_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="none"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_coat_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <RadioGroup
                 android:id="@+id/coat_size_header"
@@ -126,14 +157,19 @@
 
             </RadioGroup>
 
-            <EditText
+            <TextView
                 android:id="@+id/toothbrush_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="none"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_toothbrush_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/toothbrush_checkbox"
@@ -141,12 +177,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/toothpaste_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_toothpaste_header" />
 
             <CheckBox
@@ -155,13 +191,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_single_checkbox" />
 
-            <EditText
+            <TextView
                 android:id="@+id/soap_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="none"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 android:text="@string/request_form_soap_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <CheckBox
                 android:id="@+id/soap_checkbox"
@@ -173,14 +214,19 @@
                 android:id="@+id/location_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="none"
-                android:text="@string/request_form_location_header" />
+                android:hint="@string/request_form_location_header"
+                android:inputType="textPostalAddress" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
 
             <Button
                 android:id="@+id/submit_form_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="submitRequest"
                 android:text="@string/submit_button" />
 
         </LinearLayout>
