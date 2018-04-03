@@ -6,13 +6,14 @@
 package e.localadmin.supplydrop;
 
 //imports
+import android.app.Activity;
 import android.content.Intent;                      //Allows for this activity to load another
-import android.support.v7.app.AppCompatActivity;    //Allows inheritance from Android
 import android.os.Bundle;                           //Inherits Android
 import android.view.View;                           //Allows for buttons to work
+import com.amazonaws.mobile.client.AWSMobileClient; //Allows for AWS services
 
 /**A login screen that offers login via username/password.*/
-public class SignInPage extends AppCompatActivity {
+public class SignInPage extends Activity {
 
     //If this is true then the user logging in is trying to log in as an organization
     private boolean isClicked = false;
@@ -21,7 +22,10 @@ public class SignInPage extends AppCompatActivity {
     /**Creates this app on creation*/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_sign_in_page);
+
+        //AWSMobileClient.getInstance().initialize(this).execute();
     }
 
     /**This method signs the user into the system. On error, an error page is displayed.*/
@@ -101,6 +105,8 @@ public class SignInPage extends AppCompatActivity {
     /**This method returns true if the user is already in the system.*/
     private boolean existingUser() {
         //TODO: Implement calling to AWS to determine if the user is a valid user
+
+
         return true;
     }
 
