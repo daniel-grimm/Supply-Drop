@@ -16,13 +16,42 @@ public class RequestForm extends AppCompatActivity {
     public void submitRequest(View view) {
         Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
 
-
-
+        if (validateAmountsRequested()) {
+            //Submit new request
+            write();
+        } else {
+            //Show an error message
+            startActivity(new Intent(RequestForm.this, RequestFormError.class));
+        }
 
         startActivity(newRequest);
     }
 
+    /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
+     * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
-        return false;
+        if (/*too much food*/SupplyRequestLimits.FOOD_LIMIT < 0) {
+            return false;
+        } else if (/*too many coats*/SupplyRequestLimits.NUM_COATS < 0) {
+            return false;
+        } else if (/*too many sleeping*/SupplyRequestLimits.NUM_SLEEPING_MATERIALS < 0) {
+            return false;
+        } else if (/*too many socks*/SupplyRequestLimits.NUM_SOCKS < 0) {
+            return false;
+        } else if (/*too many underwear*/SupplyRequestLimits.NUM_UNDERWEAR < 0) {
+            return false;
+        } else if (/*too many toothbrush*/SupplyRequestLimits.NUM_TOOTHBRUSH < 0) {
+            return false;
+        } else if (/*too many toothpaste*/SupplyRequestLimits.NUM_TOOTHPASTE < 0) {
+            return false;
+        } else if (/*too many soap*/SupplyRequestLimits.NUM_SOAP < 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**This method writes the request to the database*/
+    public void write() {
+        //
     }
 }

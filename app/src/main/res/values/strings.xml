@@ -61,4 +61,7 @@
     <string name="login_error">Error logging in. Please try again.</string>
     <string name="try_again_button">Try again</string>
 
+    <!-- activity_request_form_error.xml strings -->
+
+
 </resources>
