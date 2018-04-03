@@ -15,20 +15,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
                 android:id="@+id/dashboard_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:inputType="none"
-                android:text="Name"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/title_activity_the_dashboard"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.103"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:background="@android:color/black"/>
         </LinearLayout>
     </ScrollView>
 
@@ -39,6 +44,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/switch_to_map_button"
+        android:onClick="goToMap"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

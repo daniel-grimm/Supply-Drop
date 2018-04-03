@@ -1,7 +1,10 @@
 package e.localadmin.supplydrop;
 
+//imports
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.content.Intent;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,6 +27,15 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
+    /**navigate back to the dashboard*/
+    public void goToTheDashboard(View view) {
+        startActivity(new Intent(TheMap.this, TheDashboard.class));
+    }
+
+    /**This method adds a marker to the map*/
+    public void addMarker() {
+        //
+    }
 
     /**
      * Manipulates the map once available.
@@ -34,13 +46,14 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    /**Currently this just loads the map with a marker near Seattle.*/
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng seattle = new LatLng(47, -122);
-        mMap.addMarker(new MarkerOptions().position(seattle).title("Marker in Seattle"));
+        mMap.addMarker(new MarkerOptions().position(seattle).title("Marker near Seattle"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
     }
 }

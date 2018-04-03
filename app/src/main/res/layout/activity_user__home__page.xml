@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:minHeight="50dp"
+    android:minWidth="50dp"
     tools:context=".RequestForm">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,29 +21,29 @@
 
             <TextView
                 android:id="@+id/header"
-                android:textColor="@android:color/black"
-                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_activity_home_page" />
+                android:text="@string/title_activity_home_page"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <TextView
                 android:id="@+id/food_header"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="@string/request_form_food_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_food_header"/>
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/food_checkbox"
@@ -55,12 +57,12 @@
                 android:layout_height="match_parent"
                 android:text="@string/request_form_sleeping_stuff"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/sleeping_stuff_checkbox"
@@ -73,14 +75,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@string/request_form_socks_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_socks_header" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/socks_checkbox"
@@ -93,14 +95,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@string/request_form_underwear_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_underwear_header" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/underwear_checkbox"
@@ -113,14 +115,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:text="@string/request_form_coat_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_coat_header" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <RadioGroup
                 android:id="@+id/coat_size_header"
@@ -162,14 +164,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/request_form_toothbrush_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_toothbrush_header" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/toothbrush_checkbox"
@@ -181,9 +183,9 @@
                 android:id="@+id/toothpaste_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/request_form_toothpaste_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_toothpaste_header" />
+                android:textSize="20dp" />
 
             <CheckBox
                 android:id="@+id/toothpaste_checkbox"
@@ -195,14 +197,14 @@
                 android:id="@+id/soap_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/request_form_soap_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_soap_header" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <CheckBox
                 android:id="@+id/soap_checkbox"
@@ -213,14 +215,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="@string/request_form_location_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
-                android:text="@string/request_form_location_header"/>
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <EditText
                 android:id="@+id/location_header"
@@ -232,7 +234,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:background="@android:color/black" />
 
             <Button
                 android:id="@+id/submit_form_button"
