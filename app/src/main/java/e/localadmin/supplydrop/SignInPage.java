@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.content.Intent;                      //Allows for this activity to load another
 import android.os.Bundle;                           //Inherits Android
 import android.view.View;                           //Allows for buttons to work
-import com.amazonaws.mobile.client.AWSMobileClient; //Allows for AWS services
 
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
@@ -24,8 +23,6 @@ public class SignInPage extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sign_in_page);
-
-        //AWSMobileClient.getInstance().initialize(this).execute();
     }
 
     /**This method signs the user into the system. On error, an error page is displayed.*/
