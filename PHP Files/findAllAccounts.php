@@ -1,5 +1,9 @@
 <?php
 
+/*
+This query finds all users in a database.
+*/
+
 mysql_connect("supply-drop.cdkcwqlnuxlm.us-west-2.rds.amazonaws.com", "kodite", "#2Twinkie");
 mysql_select_db(supply-drop);
 
