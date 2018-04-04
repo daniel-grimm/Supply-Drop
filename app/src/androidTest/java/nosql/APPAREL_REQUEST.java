@@ -17,6 +17,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 
 public class APPAREL_REQUEST {
 
+    //The attributes of the system.
     private Double _requestID;
     private Boolean _coat;
     private Boolean _sleepingEquipment;
