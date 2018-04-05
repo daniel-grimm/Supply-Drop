@@ -29,8 +29,7 @@ dependencies {
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.0.0'
-    compile 'org.apache.httpcomponents:httpclient:4.5'
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+
 
     compile 'com.amazonaws:aws-android-sdk-core:2.6.+'
     compile 'com.amazonaws:aws-android-sdk-ddb:2.6.+'
