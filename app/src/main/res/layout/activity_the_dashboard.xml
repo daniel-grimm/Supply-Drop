@@ -38,20 +38,154 @@
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
-                android:id="@+id/num_requsts" />
+                android:id="@+id/num_requests" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/food_requests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:text="@string/num_food"
                 android:textColor="@android:color/black"
-                android:text="TextView" />
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_food" />
+
+            <TextView
+                android:id="@+id/sock_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/num_socks"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_socks" />
+
+            <TextView
+                android:id="@+id/underwear_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_underwear" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_underwear" />
+
+            <TextView
+                android:id="@+id/sleeping_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_sleeping_equipment" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_sleeping_equipment" />
+
+            <TextView
+                android:id="@+id/coat_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_coat" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_coat" />
+
+            <TextView
+                android:id="@+id/toothbrush_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_toothbrush" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_toothbrush" />
+
+            <TextView
+                android:id="@+id/toothpaste_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_toothpaste" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_toothpaste" />
+
+            <TextView
+                android:id="@+id/soap_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="@string/num_soap" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:id="@+id/num_soap" />
+
+
         </LinearLayout>
     </ScrollView>
 

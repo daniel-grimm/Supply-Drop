@@ -40,7 +40,15 @@
     <!-- activity_the_dashboard.xml strings -->
     <string name="title_activity_the_dashboard">The Dashboard</string>
     <string name="switch_to_map_button">Map</string>
-    <string name="f">f</string>
+    <string name="num_requests">Requests</string>
+    <string name="num_food">Food</string>
+    <string name="num_coat">Coats</string>
+    <string name="num_socks">Socks</string>
+    <string name="num_underwear">Underwear</string>
+    <string name="num_sleeping_equipment">Sleeping Supplies</string>
+    <string name="num_toothbrush">Toothbrushes</string>
+    <string name="num_toothpaste">Toothpaste</string>
+    <string name="num_soap">Soap</string>
 
     <!-- activity_the_map.xml strings -->
     <string name="title_activity_the_map">The Map</string>
