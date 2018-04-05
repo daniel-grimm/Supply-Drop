@@ -19,7 +19,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 public class QueryDatabase {
 
-    URL url;
+   /* URL url;
 
     {
         try {
@@ -39,6 +39,6 @@ public class QueryDatabase {
         }
     }
     //request.setURI(uri);
-
+*/
 
 }
