@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_activity_home_page"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="24sp"
+                android:textStyle="bold"/>
 
             <View
                 android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/request_form_food_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/request_form_sleeping_stuff"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -77,7 +78,7 @@
                 android:ems="10"
                 android:text="@string/request_form_socks_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -97,7 +98,7 @@
                 android:ems="10"
                 android:text="@string/request_form_underwear_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -117,56 +118,27 @@
                 android:ems="10"
                 android:text="@string/request_form_coat_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
 
-            <RadioGroup
-                android:id="@+id/coat_size_header"
+            <CheckBox
+                android:id="@+id/coat_checkbox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/small_coat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/size_small" />
-
-                <RadioButton
-                    android:id="@+id/medium_coat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/size_medium" />
-
-                <RadioButton
-                    android:id="@+id/large_coat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/size_large" />
-
-                <RadioButton
-                    android:id="@+id/extra_large_coat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/size_extra_large" />
-
-            </RadioGroup>
+                android:layout_height="wrap_content"
+                android:text="@string/request_form_single_checkbox" />
 
             <TextView
                 android:id="@+id/toothbrush_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="@string/request_form_toothbrush_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -185,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_toothpaste_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <CheckBox
                 android:id="@+id/toothpaste_checkbox"
@@ -199,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/request_form_soap_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -217,7 +189,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/request_form_location_header"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
