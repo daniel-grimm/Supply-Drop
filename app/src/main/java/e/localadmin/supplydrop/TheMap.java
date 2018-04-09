@@ -1,3 +1,4 @@
+/**This class creates a map with data points of unfulfilled requests.*/
 package e.localadmin.supplydrop;
 
 //imports
@@ -6,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 
+//google map imports
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,8 +35,13 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     }
 
     /**This method adds a marker to the map*/
-    public void addMarker() {
-        //
+    public void addMarker(String address, int requestID) {
+        //TODO: If there is a google map api call to translate string address into lat/long
+        //coordinates.
+
+        //TODO: Get the username of the person requesting
+        //LatLng latitudeLongitude = new LatLng(00, 00);
+        //mMap.addMarker(new MarkerOptions().position(LatitudeLongitude).title(
     }
 
     /**

@@ -28,12 +28,12 @@ public class SignInPage extends Activity {
     /**This method signs the user into the system. On error, an error page is displayed.*/
     public void signIn(View view) {
         //Decision tree determines if the user is valid and if the user is an organization
-        if (existingUser()) {
+        if (userAlreadyExists("Username", "Password")) {
             //Continue the sign in process
-            if (!isClicked) {
+            if (!isClicked) {//This is an individual signing on
                 //go to the request form
                 goToRequestFormActivity(view);
-            } else {
+            } else {//This is an organization signing on.
                 //go to the dashboard
                 goToTheDashboard(view);
             }
@@ -48,14 +48,13 @@ public class SignInPage extends Activity {
     /**This method registers a new user into the system. On error, an error page is displayed.*/
     public void register(View view) {
 
-        registerUser();//Create a new user in the database
-
-        //TODO:This decision tree should be a part of registerUser(), It is fine here for now.
-        if (!validPassword()) {
+        if (usernameAlreadyExists("Username")) {
             Intent error = new Intent(SignInPage.this, LoginError.class);
-            error.putExtra("ERROR_MESSAGE", "Password is too short. Please try again.");
+            //TODO: add error message.
             startActivity(error);
         }
+
+        registerUser("Username", "Password", "Kodite");//Create a new user in the database
 
         //Decision tree determines if the user is an organization or not.
         if (!isClicked) {
@@ -71,7 +70,7 @@ public class SignInPage extends Activity {
      * is signing in. If this is not the first time signing in then the user is taken
      * to the supply request form.*/
     public void goToRequestFormActivity(View view) {
-        if (!firstTimeSignIn()) {
+        if (!firstTimeSignIn("Username")) {
             //This is not a first time sign in so go the the request supplies form.
             startActivity(new Intent(SignInPage.this, RequestForm.class));
         } else {
@@ -84,7 +83,7 @@ public class SignInPage extends Activity {
      * is signing in. If it is not the first time the organization is signing in then the
      * dashboard is loaded.*/
     public void goToTheDashboard(View view) {
-        if (!firstTimeSignIn()) {
+        if (!firstTimeSignIn("Username")) {
             //Not the first time signing in so go to the dashboard straight away.
             startActivity(new Intent(SignInPage.this, TheDashboard.class));
         } else {
@@ -94,13 +93,15 @@ public class SignInPage extends Activity {
     }
 
     /**This method returns true if this is the first time the user is signing into the system.*/
-    private boolean firstTimeSignIn() {
+    private boolean firstTimeSignIn(String username) {
         //TODO: Implement calling AWS to determine if the user already exists.
+
+
         return true;
     }
 
     /**This method returns true if the user is already in the system.*/
-    private boolean existingUser() {
+    private boolean userAlreadyExists(String username, String password) {
         //TODO: Implement calling to AWS to determine if the user is a valid user
 
 
@@ -108,8 +109,12 @@ public class SignInPage extends Activity {
     }
 
     /**This method returns true if the password is valid password*/
-    private boolean validPassword() {
-        return false;
+    private boolean validPassword(String password) {
+        if (password.length() > 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**This method changes the value of this.isClicked. If isClicked is set to false it will be set
@@ -123,7 +128,26 @@ public class SignInPage extends Activity {
     }
 
     /**This method creates a new entry in the database for the user.*/
-    private void registerUser() {
-        return;
+    private void registerUser(String username, String password, String firstName) {
+
+        if (!validPassword("Hi there")) {
+            Intent error = new Intent(SignInPage.this, LoginError.class);
+            error.putExtra("ERROR_MESSAGE", "Password is too short. Please try again.");
+            startActivity(error);
+            return;
+        }
+
+        //TODO: implement adding a user to the table
+
+
+    }
+
+    private boolean usernameAlreadyExists(String username) {
+        //TODO: Get information from database
+        if (username.length() > 2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
