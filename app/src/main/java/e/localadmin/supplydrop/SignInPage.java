@@ -11,11 +11,16 @@ import android.content.Intent;                      //Allows for this activity t
 import android.os.Bundle;                           //Inherits Android
 import android.view.View;                           //Allows for buttons to work
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
 
     //If this is true then the user logging in is trying to log in as an organization
     private boolean isClicked = false;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase data;
 
     @Override
     /**Creates this app on creation*/

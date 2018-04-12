@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "25948516056",
+    "firebase_url": "https://supply-drop-1519330467686.firebaseio.com",
+    "project_id": "supply-drop-1519330467686",
+    "storage_bucket": "supply-drop-1519330467686.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25948516056:android:f65ea56fa9affdca",
+        "android_client_info": {
+          "package_name": "e.localadmin.supplydrop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25948516056-pu37fupt94nnghephp9ghlva8i8va8um.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmNI0iWVYVvExfDeCYTsjAulYcR54U1l4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
