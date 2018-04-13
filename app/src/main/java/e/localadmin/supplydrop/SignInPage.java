@@ -66,7 +66,10 @@ public class SignInPage extends Activity {
     }
 
     /**This method registers a user.*/
-    public void register(View view, String email, String password) {
+    public void register(View view) {
+        String email, password;
+        email = null;
+        password = null;
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -90,7 +93,10 @@ public class SignInPage extends Activity {
     }
 
     /**This method signs in a user.*/
-    public void signIn(View view, String email, String password) {
+    public void signIn(View view) {
+        String email, password;
+        email = null;
+        password = null;
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

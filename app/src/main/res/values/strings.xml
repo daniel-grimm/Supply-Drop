@@ -36,6 +36,8 @@
     <string name="error_username_already_exists">This username already exists</string>
     <string name="permission_rationale">Permission granted</string>
     <string name="prompt_organization">Are you an organization?</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_first_name">First name</string>
 
     <!-- activity_the_dashboard.xml strings -->
     <string name="title_activity_the_dashboard">The Dashboard</string>
