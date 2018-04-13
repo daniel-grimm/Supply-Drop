@@ -9,10 +9,19 @@ package e.localadmin.supplydrop;
 import android.app.Activity;
 import android.content.Intent;                      //Allows for this activity to load another
 import android.os.Bundle;                           //Inherits Android
+import android.support.annotation.NonNull;
 import android.view.View;                           //Allows for buttons to work
+import android.widget.Toast;
+import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static android.content.ContentValues.TAG;
 
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
@@ -28,102 +37,26 @@ public class SignInPage extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sign_in_page);
+        mAuth.getInstance();
     }
 
-    /**This method signs the user into the system. On error, an error page is displayed.*/
-    public void signIn(View view) {
-        //Decision tree determines if the user is valid and if the user is an organization
-        if (userAlreadyExists("Username", "Password")) {
-            //Continue the sign in process
-            if (!isClicked) {//This is an individual signing on
-                //go to the request form
-                goToRequestFormActivity(view);
-            } else {//This is an organization signing on.
-                //go to the dashboard
-                goToTheDashboard(view);
-            }
-        } else {
-            //error, go to the login error activity
-            Intent error = new Intent(SignInPage.this, LoginError.class);
-            error.putExtra("ERROR_MESSAGE", "Invalid Credentials. Please try again.");
-            startActivity(error);//switch activities
-        }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 
-    /**This method registers a new user into the system. On error, an error page is displayed.*/
-    public void register(View view) {
-
-        if (usernameAlreadyExists("Username")) {
-            Intent error = new Intent(SignInPage.this, LoginError.class);
-            //TODO: add error message.
-            startActivity(error);
-        }
-
-        registerUser("Username", "Password", "Kodite");//Create a new user in the database
-
-        //Decision tree determines if the user is an organization or not.
-        if (!isClicked) {
-            //go to the request form activity
-            goToRequestFormActivity(view);
-        } else {
-            //go to the dashboard activity
-            goToTheDashboard(view);
-        }
+    /**This updates the UI so with the user information.*/
+    private void updateUI(FirebaseUser user) {
+        //
     }
 
-    /**This method loads a greeting message if this is the first time the user
-     * is signing in. If this is not the first time signing in then the user is taken
-     * to the supply request form.*/
-    public void goToRequestFormActivity(View view) {
-        if (!firstTimeSignIn("Username")) {
-            //This is not a first time sign in so go the the request supplies form.
-            startActivity(new Intent(SignInPage.this, RequestForm.class));
-        } else {
-            //First time sign in so go to the greeting page first.
-            startActivity(new Intent(SignInPage.this, IndividualGreeting.class));
-        }
-    }
-
-    /**This method sends the user to a greeting page if this is the first time the organization
-     * is signing in. If it is not the first time the organization is signing in then the
-     * dashboard is loaded.*/
-    public void goToTheDashboard(View view) {
-        if (!firstTimeSignIn("Username")) {
-            //Not the first time signing in so go to the dashboard straight away.
-            startActivity(new Intent(SignInPage.this, TheDashboard.class));
-        } else {
-            //First time sign in so go the greeting page first.
-            startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
-        }
-    }
-
-    /**This method returns true if this is the first time the user is signing into the system.*/
-    private boolean firstTimeSignIn(String username) {
-        //TODO: Implement calling AWS to determine if the user already exists.
-
-
-        return true;
-    }
-
-    /**This method returns true if the user is already in the system.*/
-    private boolean userAlreadyExists(String username, String password) {
-        //TODO: Implement calling to AWS to determine if the user is a valid user
-
-
-        return true;
-    }
-
-    /**This method returns true if the password is valid password*/
-    private boolean validPassword(String password) {
-        if (password.length() > 4) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**This method changes the value of this.isClicked. If isClicked is set to false it will be set
-     * to true. If it is set to true it will be changed to false.*/
+    /**
+     * This method changes the value of this.isClicked. If isClicked is set to false it will be set
+     * to true. If it is set to true it will be changed to false.
+     */
     public void clicked(View view) {
         if (isClicked) {
             isClicked = false;//flip the boolean value
@@ -132,27 +65,52 @@ public class SignInPage extends Activity {
         }
     }
 
-    /**This method creates a new entry in the database for the user.*/
-    private void registerUser(String username, String password, String firstName) {
+    /**This method registers a user.*/
+    public void register(View view, String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SignInPage.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
 
-        if (!validPassword("Hi there")) {
-            Intent error = new Intent(SignInPage.this, LoginError.class);
-            error.putExtra("ERROR_MESSAGE", "Password is too short. Please try again.");
-            startActivity(error);
-            return;
-        }
-
-        //TODO: implement adding a user to the table
-
-
+                        // ...
+                    }
+                });
     }
 
-    private boolean usernameAlreadyExists(String username) {
-        //TODO: Get information from database
-        if (username.length() > 2) {
-            return true;
-        } else {
-            return false;
-        }
+    /**This method signs in a user.*/
+    public void signIn(View view, String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(SignInPage.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+
     }
 }
