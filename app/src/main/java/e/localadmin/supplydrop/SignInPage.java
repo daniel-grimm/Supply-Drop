@@ -11,6 +11,8 @@ import android.content.Intent;                      //Allows for this activity t
 import android.os.Bundle;                           //Inherits Android
 import android.support.annotation.NonNull;
 import android.view.View;                           //Allows for buttons to work
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.util.Log;
 
@@ -30,6 +32,7 @@ public class SignInPage extends Activity {
     private boolean isClicked = false;
     private FirebaseAuth mAuth;
     private FirebaseDatabase data;
+    private int username;
 
     @Override
     /**Creates this app on creation*/
@@ -67,9 +70,15 @@ public class SignInPage extends Activity {
 
     /**This method registers a user.*/
     public void register(View view) {
-        String email, password;
-        email = null;
-        password = null;
+        //Get the text input from the user
+        String email, password, firstName;
+        AutoCompleteTextView emailText = (AutoCompleteTextView) findViewById(R.id.email);
+        email = emailText.getText().toString();
+        EditText passwordText = (EditText) findViewById(R.id.password);
+        password = passwordText.getText().toString();
+        EditText firstNameText = (EditText) findViewById(R.id.first_name);
+        firstName = firstNameText.getText().toString();
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
