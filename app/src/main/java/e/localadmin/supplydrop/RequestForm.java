@@ -35,23 +35,23 @@ public class RequestForm extends AppCompatActivity {
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
-        if (/*too much food*/SupplyRequestLimits.NUM_FOOD < 0) {
+        /*if (/*too much foodSupplyRequestLimits.NUM_FOOD < 0) {
             return false;
-        } else if (/*too many coats*/SupplyRequestLimits.NUM_COATS < 0) {
+        } else if (/*too many coatsSupplyRequestLimits.NUM_COATS < 0) {
             return false;
-        } else if (/*too many sleeping*/SupplyRequestLimits.NUM_SLEEPING_MATERIALS < 0) {
+        } else if (/*too many sleepingSupplyRequestLimits.NUM_SLEEPING_MATERIALS < 0) {
             return false;
-        } else if (/*too many socks*/SupplyRequestLimits.NUM_SOCKS < 0) {
+        } else if (/*too many socksSupplyRequestLimits.NUM_SOCKS < 0) {
             return false;
-        } else if (/*too many underwear*/SupplyRequestLimits.NUM_UNDERWEAR < 0) {
+        } else if (/*too many underwearSupplyRequestLimits.NUM_UNDERWEAR < 0) {
             return false;
-        } else if (/*too many toothbrush*/SupplyRequestLimits.NUM_TOOTHBRUSH < 0) {
+        } else if (/*too many toothbrushSupplyRequestLimits.NUM_TOOTHBRUSH < 0) {
             return false;
-        } else if (/*too many toothpaste*/SupplyRequestLimits.NUM_TOOTHPASTE < 0) {
+        } else if (/*too many toothpasteSupplyRequestLimits.NUM_TOOTHPASTE < 0) {
             return false;
-        } else if (/*too many soap*/SupplyRequestLimits.NUM_SOAP < 0) {
+        } else if (/*too many soapSupplyRequestLimits.NUM_SOAP < 0) {
             return false;
-        }
+        }*/
         return true;
     }
 

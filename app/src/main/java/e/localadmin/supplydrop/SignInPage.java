@@ -43,23 +43,16 @@ public class SignInPage extends Activity {
         mAuth.getInstance();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
 
     /**This updates the UI so with the user information.*/
     private void updateUI(FirebaseUser user) {
-        //
+        return;
     }
 
     /**
      * This method changes the value of this.isClicked. If isClicked is set to false it will be set
-     * to true. If it is set to true it will be changed to false.
-     */
+     * to true. If it is set to true it will be changed to false.*/
+
     public void clicked(View view) {
         if (isClicked) {
             isClicked = false;//flip the boolean value
@@ -128,4 +121,5 @@ public class SignInPage extends Activity {
                 });
 
     }
+
 }
