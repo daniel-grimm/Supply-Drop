@@ -7,52 +7,59 @@ package e.localadmin.supplydrop;
 
 //imports
 import android.app.Activity;
-import android.content.Intent;                      //Allows for this activity to load another
+import android.content.Intent;
 import android.os.Bundle;                           //Inherits Android
-import android.support.annotation.NonNull;
 import android.view.View;                           //Allows for buttons to work
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
-import static android.content.ContentValues.TAG;
+//Firebase imports
+import com.firebase.ui.auth.AuthUI;
+
+//Language imports
+import java.util.Arrays;
+import java.util.List;
 
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
 
     //If this is true then the user logging in is trying to log in as an organization
     private boolean isClicked = false;
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase data;
-    private int username;
+    private static final int RC_SIGN_IN = 123;
+
 
     @Override
     /**Creates this app on creation*/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_sign_in_page);
-        mAuth.getInstance();
+
+        // Choose authentication providers
+        List<AuthUI.IdpConfig> providers = Arrays.asList(
+                new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+                new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build());
+
+        // Create and launch sign-in intent
+        startActivityForResult(
+                AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setAvailableProviders(providers)
+                        .build(),
+                RC_SIGN_IN);
+
     }
 
 
-    /**This updates the UI so with the user information.*/
-    private void updateUI(FirebaseUser user) {
-        return;
+    public void greeting(View view) {
+        if (isClicked) {
+            startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
+        } else {
+            startActivity(new Intent(SignInPage.this, IndividualGreeting.class));
+        }
     }
 
     /**
      * This method changes the value of this.isClicked. If isClicked is set to false it will be set
      * to true. If it is set to true it will be changed to false.*/
-
     public void clicked(View view) {
         if (isClicked) {
             isClicked = false;//flip the boolean value
@@ -60,66 +67,4 @@ public class SignInPage extends Activity {
             isClicked = true;//flip the boolean value
         }
     }
-
-    /**This method registers a user.*/
-    public void register(View view) {
-        //Get the text input from the user
-        String email, password, firstName;
-        AutoCompleteTextView emailText = (AutoCompleteTextView) findViewById(R.id.email);
-        email = emailText.getText().toString();
-        EditText passwordText = (EditText) findViewById(R.id.password);
-        password = passwordText.getText().toString();
-        EditText firstNameText = (EditText) findViewById(R.id.first_name);
-        firstName = firstNameText.getText().toString();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignInPage.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-    }
-
-    /**This method signs in a user.*/
-    public void signIn(View view) {
-        String email, password;
-        email = null;
-        password = null;
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(SignInPage.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-
-    }
-
 }

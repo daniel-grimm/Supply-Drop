@@ -38,6 +38,7 @@
     <string name="prompt_organization">Are you an organization?</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_first_name">First name</string>
+    <string name="prompt_continue">Continue</string>
 
     <!-- activity_the_dashboard.xml strings -->
     <string name="title_activity_the_dashboard">The Dashboard</string>
