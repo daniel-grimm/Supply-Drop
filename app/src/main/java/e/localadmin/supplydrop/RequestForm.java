@@ -8,8 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.CheckBox;
+import android.widget.EditText;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RequestForm extends AppCompatActivity {
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,19 +26,41 @@ public class RequestForm extends AppCompatActivity {
         setContentView(R.layout.activity_user__home__page);
     }
 
-    /***/
+    /**This method submits a request for supplies to the database.*/
     public void submitRequest(View view) {
+        CheckBox food = (CheckBox) findViewById(R.id.food_checkbox);
+        CheckBox sleepingStuff = (CheckBox) findViewById(R.id.sleeping_stuff_checkbox);
+        CheckBox socks = (CheckBox) findViewById(R.id.socks_checkbox);
+        CheckBox underwear = (CheckBox) findViewById(R.id.underwear_checkbox);
+        CheckBox coat = (CheckBox) findViewById(R.id.coat_checkbox);
+        CheckBox toothbrush = (CheckBox) findViewById(R.id.toothbrush_checkbox);
+        CheckBox toothpaste = (CheckBox) findViewById(R.id.toothpaste_checkbox);
+        CheckBox soap = (CheckBox) findViewById(R.id.soap_checkbox);
+        EditText location = (EditText) findViewById(R.id.location_header);
+        boolean foods = food.isChecked();
+        boolean sleepingStuffs = sleepingStuff.isChecked();
+        boolean sockz = socks.isChecked();
+        boolean underwears = underwear.isChecked();
+        boolean coats = coat.isChecked();
+        boolean toothbrushes = toothbrush.isChecked();
+        boolean toothpastes = toothpaste.isChecked();
+        boolean soaps = soap.isChecked();
+        String locations = location.getText().toString();
+
         Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         if (validateAmountsRequested()) {
             //Submit new request
-            write();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+            startActivity(newRequest);
         } else {
             //Show an error message
             startActivity(new Intent(RequestForm.this, RequestFormError.class));
         }
-
-        startActivity(newRequest);
     }
 
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
@@ -55,8 +86,4 @@ public class RequestForm extends AppCompatActivity {
         return true;
     }
 
-    /**This method writes the request to the database*/
-    public void write() {
-        //
-    }
 }

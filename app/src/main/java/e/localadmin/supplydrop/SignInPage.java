@@ -48,7 +48,7 @@ public class SignInPage extends Activity {
 
     }
 
-
+    /*This sends the user to a greeting message.*/
     public void greeting(View view) {
         if (isClicked) {
             startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
