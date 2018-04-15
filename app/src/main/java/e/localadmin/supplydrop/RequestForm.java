@@ -28,6 +28,7 @@ public class RequestForm extends AppCompatActivity {
 
     /**This method submits a request for supplies to the database.*/
     public void submitRequest(View view) {
+        //Get the objects from the survey
         CheckBox food = (CheckBox) findViewById(R.id.food_checkbox);
         CheckBox sleepingStuff = (CheckBox) findViewById(R.id.sleeping_stuff_checkbox);
         CheckBox socks = (CheckBox) findViewById(R.id.socks_checkbox);
@@ -37,6 +38,8 @@ public class RequestForm extends AppCompatActivity {
         CheckBox toothpaste = (CheckBox) findViewById(R.id.toothpaste_checkbox);
         CheckBox soap = (CheckBox) findViewById(R.id.soap_checkbox);
         EditText location = (EditText) findViewById(R.id.location_header);
+
+        //Get the values entered into the survey
         boolean foods = food.isChecked();
         boolean sleepingStuffs = sleepingStuff.isChecked();
         boolean sockz = socks.isChecked();
