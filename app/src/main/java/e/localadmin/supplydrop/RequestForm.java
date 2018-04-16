@@ -39,16 +39,9 @@ public class RequestForm extends AppCompatActivity {
         CheckBox soap = (CheckBox) findViewById(R.id.soap_checkbox);
         EditText location = (EditText) findViewById(R.id.location_header);
 
-        //Get the values entered into the survey
-        boolean foods = food.isChecked();
-        boolean sleepingStuffs = sleepingStuff.isChecked();
-        boolean sockz = socks.isChecked();
-        boolean underwears = underwear.isChecked();
-        boolean coats = coat.isChecked();
-        boolean toothbrushes = toothbrush.isChecked();
-        boolean toothpastes = toothpaste.isChecked();
-        boolean soaps = soap.isChecked();
-        String locations = location.getText().toString();
+        Request request = new Request(food, sleepingStuff, socks, underwear, coat, toothbrush,
+                toothpaste, soap, location);
+
 
         Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
 
