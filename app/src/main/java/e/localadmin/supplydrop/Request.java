@@ -3,9 +3,13 @@
 
 package e.localadmin.supplydrop;
 
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+//Firebase
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -35,6 +39,7 @@ public class Request {
         toothpaste = toothpastes;
         soap = soaps;
         location = locations;
+        makeRequest();
 
     }
 
@@ -52,6 +57,13 @@ public class Request {
         toothpaste = toothpastes.isChecked();
         soap = soaps.isChecked();
         location = locations.getText().toString();
+        makeRequest();
+    }
+
+    private void makeRequest() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference databaseReference = Database.DATABASE.getReference("/Users/");
+
     }
 
     public ArrayList<Object> getAll() {

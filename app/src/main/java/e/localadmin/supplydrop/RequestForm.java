@@ -29,29 +29,28 @@ public class RequestForm extends AppCompatActivity {
     /**This method submits a request for supplies to the database.*/
     public void submitRequest(View view) {
         //Get the objects from the survey
-        CheckBox food = (CheckBox) findViewById(R.id.food_checkbox);
-        CheckBox sleepingStuff = (CheckBox) findViewById(R.id.sleeping_stuff_checkbox);
-        CheckBox socks = (CheckBox) findViewById(R.id.socks_checkbox);
-        CheckBox underwear = (CheckBox) findViewById(R.id.underwear_checkbox);
-        CheckBox coat = (CheckBox) findViewById(R.id.coat_checkbox);
-        CheckBox toothbrush = (CheckBox) findViewById(R.id.toothbrush_checkbox);
-        CheckBox toothpaste = (CheckBox) findViewById(R.id.toothpaste_checkbox);
-        CheckBox soap = (CheckBox) findViewById(R.id.soap_checkbox);
-        EditText location = (EditText) findViewById(R.id.location_header);
+        CheckBox food = findViewById(R.id.food_checkbox);
+        CheckBox sleepingStuff = findViewById(R.id.sleeping_stuff_checkbox);
+        CheckBox socks = findViewById(R.id.socks_checkbox);
+        CheckBox underwear = findViewById(R.id.underwear_checkbox);
+        CheckBox coat = findViewById(R.id.coat_checkbox);
+        CheckBox toothbrush = findViewById(R.id.toothbrush_checkbox);
+        CheckBox toothpaste = findViewById(R.id.toothpaste_checkbox);
+        CheckBox soap = findViewById(R.id.soap_checkbox);
+        EditText location = findViewById(R.id.location_header);
 
         Request request = new Request(food, sleepingStuff, socks, underwear, coat, toothbrush,
                 toothpaste, soap, location);
 
-
-        Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = Database.DATABASE.getReference();
+        mDatabase.setValue(request);
 
         if (validateAmountsRequested()) {
             //Submit new request
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
+            //Load the request page again
+            Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
             startActivity(newRequest);
         } else {
             //Show an error message

@@ -14,6 +14,10 @@ import android.view.View;                           //Allows for buttons to work
 
 //Firebase imports
 import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 //Language imports
 import java.util.Arrays;
@@ -46,6 +50,10 @@ public class SignInPage extends Activity {
                         .build(),
                 RC_SIGN_IN);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference databaseReference = Database.DATABASE.getReference();
+        DatabaseReference users = databaseReference.child("Users");
+        DatabaseReference requests = databaseReference.child("Requests");
     }
 
     /*This sends the user to a greeting message.*/
