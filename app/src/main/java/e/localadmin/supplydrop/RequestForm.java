@@ -43,8 +43,9 @@ public class RequestForm extends AppCompatActivity {
                 toothpaste, soap, location);
 
         mDatabase = Database.DATABASE.getReference();
-        mDatabase.setValue(request);
+        mDatabase.child("request").push().setValue(request);
 
+        //TODO: implement me
         if (validateAmountsRequested()) {
             //Submit new request
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

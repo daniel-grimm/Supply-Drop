@@ -1,4 +1,5 @@
-/**This is the database for the system*/
+/**This is the database for the system
+ * @author Daniel Grimm*/
 
 package e.localadmin.supplydrop;
 

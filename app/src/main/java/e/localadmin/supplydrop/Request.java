@@ -11,10 +11,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+//language imports
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Request {
 
+    //Elements of the request.
     private boolean food = false;
     private boolean sleepingStuff = false;
     private boolean socks = false;
@@ -24,6 +27,9 @@ public class Request {
     private boolean toothpaste = false;
     private boolean soap = false;
     private String location = null;
+
+    private Date date;
+    private FirebaseUser user;
 
     //Creates a new request object that is initialized with the flags directly.
     public Request(boolean foods, boolean sleepingstuffs, boolean sock, boolean underwears,
@@ -39,8 +45,8 @@ public class Request {
         toothpaste = toothpastes;
         soap = soaps;
         location = locations;
-        makeRequest();
-
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        date = new Date();
     }
 
     //Creates a new request object that is initialized with the objects
@@ -57,13 +63,8 @@ public class Request {
         toothpaste = toothpastes.isChecked();
         soap = soaps.isChecked();
         location = locations.getText().toString();
-        makeRequest();
-    }
-
-    private void makeRequest() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference databaseReference = Database.DATABASE.getReference("/Users/");
-
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        date = new Date();
     }
 
     public ArrayList<Object> getAll() {
