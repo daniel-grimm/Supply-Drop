@@ -9,7 +9,6 @@ import android.widget.EditText;
 //Firebase
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 
 //language imports
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Request {
     private boolean soap = false;
     private String location = null;
 
-    private Date date;
-    private FirebaseUser user;
+    private String date;
+    private String user;
 
     //Creates a new request object that is initialized with the flags directly.
     public Request(boolean foods, boolean sleepingstuffs, boolean sock, boolean underwears,
@@ -45,8 +44,8 @@ public class Request {
         toothpaste = toothpastes;
         soap = soaps;
         location = locations;
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        date = new Date();
+        user = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        date = new Date().toString();
     }
 
     //Creates a new request object that is initialized with the objects
@@ -63,8 +62,8 @@ public class Request {
         toothpaste = toothpastes.isChecked();
         soap = soaps.isChecked();
         location = locations.getText().toString();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        date = new Date();
+        user = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        date = new Date().toString();
     }
 
     public ArrayList<Object> getAll() {
@@ -81,7 +80,7 @@ public class Request {
         return list;
     }
 
-    //Gets the flags of all of the values.
+    //Get the flags of all of the values.
     public boolean getFood() {
         return food;
     }
@@ -116,6 +115,40 @@ public class Request {
 
     public String getLocation() {
         return location;
+    }
+
+    //Set the flags for all of the changeable fields
+    //Date and User are not changeable fields
+    public void setFood(boolean foods) {
+        food = foods;
+    }
+
+    public void setSleepingStuff(boolean sleepingStuffs) {
+        sleepingStuff = sleepingStuffs;
+    }
+
+    public void setSocks(boolean sock) {
+        socks = sock;
+    }
+
+    public void setUnderwear(boolean underwears) {
+        underwear = underwears;
+    }
+
+    public void setCoat(boolean coats) {
+        coat = coats;
+    }
+
+    public void setToothbrush(boolean toothbrushs) {
+        toothbrush = toothbrushs;
+    }
+
+    public void setToothpaste(boolean toothpastes) {
+        toothpaste = toothpastes;
+    }
+
+    public void setSoap(boolean soaps) {
+        soap = soaps;
     }
 
 }

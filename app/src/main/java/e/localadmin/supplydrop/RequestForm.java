@@ -11,14 +11,10 @@ import android.content.Intent;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+//Firebase imports
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class RequestForm extends AppCompatActivity {
-
-    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +38,11 @@ public class RequestForm extends AppCompatActivity {
         Request request = new Request(food, sleepingStuff, socks, underwear, coat, toothbrush,
                 toothpaste, soap, location);
 
-        mDatabase = Database.DATABASE.getReference();
-        mDatabase.child("request").push().setValue(request);
-
         //TODO: implement me
         if (validateAmountsRequested()) {
-            //Submit new request
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            //Add new request to the database
+            DatabaseReference mDatabase = Database.DATABASE.getReference();
+            mDatabase.child("request").push().setValue(request);
 
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
@@ -62,23 +56,27 @@ public class RequestForm extends AppCompatActivity {
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
-        /*if (/*too much foodSupplyRequestLimits.NUM_FOOD < 0) {
+        DatabaseReference databaseReference = Database.DATABASE.getReference();
+        //TODO: get query
+        int numFood;
+
+        if (SupplyRequestLimits.NUM_FOOD <= 0) {
             return false;
-        } else if (/*too many coatsSupplyRequestLimits.NUM_COATS < 0) {
+        } else if (SupplyRequestLimits.NUM_COATS <= 0) {
             return false;
-        } else if (/*too many sleepingSupplyRequestLimits.NUM_SLEEPING_MATERIALS < 0) {
+        } else if (SupplyRequestLimits.NUM_SLEEPING_MATERIALS <= 0) {
             return false;
-        } else if (/*too many socksSupplyRequestLimits.NUM_SOCKS < 0) {
+        } else if (SupplyRequestLimits.NUM_SOCKS <= 0) {
             return false;
-        } else if (/*too many underwearSupplyRequestLimits.NUM_UNDERWEAR < 0) {
+        } else if (SupplyRequestLimits.NUM_UNDERWEAR <= 0) {
             return false;
-        } else if (/*too many toothbrushSupplyRequestLimits.NUM_TOOTHBRUSH < 0) {
+        } else if (SupplyRequestLimits.NUM_TOOTHBRUSH <= 0) {
             return false;
-        } else if (/*too many toothpasteSupplyRequestLimits.NUM_TOOTHPASTE < 0) {
+        } else if (SupplyRequestLimits.NUM_TOOTHPASTE <= 0) {
             return false;
-        } else if (/*too many soapSupplyRequestLimits.NUM_SOAP < 0) {
+        } else if (SupplyRequestLimits.NUM_SOAP <= 0) {
             return false;
-        }*/
+        }
         return true;
     }
 
