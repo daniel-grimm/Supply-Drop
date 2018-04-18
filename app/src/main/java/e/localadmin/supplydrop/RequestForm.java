@@ -42,7 +42,8 @@ public class RequestForm extends AppCompatActivity {
         if (validateAmountsRequested()) {
             //Add new request to the database
             DatabaseReference mDatabase = Database.DATABASE.getReference();
-            mDatabase.child("request").push().setValue(request);
+            String key = mDatabase.child("request").push().getKey();
+            mDatabase.child("request").child(key).setValue(request);
 
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestForm.class);

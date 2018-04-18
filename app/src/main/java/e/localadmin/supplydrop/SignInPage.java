@@ -8,8 +8,12 @@ package e.localadmin.supplydrop;
 //imports
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;                           //Inherits Android
+import android.preference.PreferenceManager;
+import android.provider.SyncStateContract;
 import android.view.View;                           //Allows for buttons to work
+import android.widget.CheckBox;
 
 
 //Firebase imports
@@ -52,21 +56,24 @@ public class SignInPage extends Activity {
 
     /*This sends the user to a greeting message.*/
     public void greeting(View view) {
-        if (isClicked) {
-            startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
-        } else {
-            startActivity(new Intent(SignInPage.this, IndividualGreeting.class));
-        }
-    }
+        boolean clicked = ((CheckBox) findViewById(R.id.organization)).isChecked();
+        boolean firstTime = false;
 
-    /**
-     * This method changes the value of this.isClicked. If isClicked is set to false it will be set
-     * to true. If it is set to true it will be changed to false.*/
-    public void clicked(View view) {
-        if (isClicked) {
-            isClicked = false;//flip the boolean value
+        if (clicked) {
+            //TODO: If the first time visiting the front page display a greeting
+            if (firstTime) {
+                startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
+            } else {
+                startActivity(new Intent(SignInPage.this, TheDashboard.class));
+            }
         } else {
-            isClicked = true;//flip the boolean value
+            //TODO: If the first time visiting te front page display a greeting
+            if (firstTime) {
+                startActivity(new Intent(SignInPage.this, IndividualGreeting.class));
+            } else {
+                startActivity(new Intent(SignInPage.this, RequestForm.class));
+            }
+
         }
     }
 }

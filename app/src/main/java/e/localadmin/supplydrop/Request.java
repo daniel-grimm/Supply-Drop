@@ -30,24 +30,6 @@ public class Request {
     private String date;
     private String user;
 
-    //Creates a new request object that is initialized with the flags directly.
-    public Request(boolean foods, boolean sleepingstuffs, boolean sock, boolean underwears,
-                   boolean coats, boolean toothbrushs, boolean toothpastes, boolean soaps,
-                   String locations) {
-
-        food = foods;
-        sleepingStuff = sleepingstuffs;
-        socks = sock;
-        underwear = underwears;
-        coat = coats;
-        toothbrush = toothbrushs;
-        toothpaste = toothpastes;
-        soap = soaps;
-        location = locations;
-        user = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        date = new Date().toString();
-    }
-
     //Creates a new request object that is initialized with the objects
     public Request(CheckBox foods, CheckBox sleepingStuffs, CheckBox sock, CheckBox underwears,
                    CheckBox coats, CheckBox toothbrushs, CheckBox toothpastes, CheckBox soaps,
@@ -64,20 +46,6 @@ public class Request {
         location = locations.getText().toString();
         user = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         date = new Date().toString();
-    }
-
-    public ArrayList<Object> getAll() {
-        ArrayList<Object> list = new ArrayList<Object>();
-        list.add(food);
-        list.add(sleepingStuff);
-        list.add(socks);
-        list.add(underwear);
-        list.add(coat);
-        list.add(toothbrush);
-        list.add(toothpaste);
-        list.add(soap);
-        list.add(location);
-        return list;
     }
 
     //Get the flags of all of the values.
