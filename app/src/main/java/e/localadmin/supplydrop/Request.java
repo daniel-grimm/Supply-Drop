@@ -90,7 +90,7 @@ public class Request {
     //Date and User are not changeable fields
     public void setFood(boolean food) {
         map.remove("food");
-        map.put("food", food)
+        map.put("food", food);
     }
 
     public void setSleepingStuff(boolean sleepingStuff) {

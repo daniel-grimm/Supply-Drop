@@ -46,7 +46,7 @@ public class RequestForm extends AppCompatActivity {
             mDatabase.child("request").child(key).setValue(request);
 
             //Load the request page again
-            Intent newRequest = new Intent(RequestForm.this, RequestForm.class);
+            Intent newRequest = new Intent(RequestForm.this, RequestSubmitted.class);
             startActivity(newRequest);
         } else {
             //Show an error message
@@ -57,7 +57,9 @@ public class RequestForm extends AppCompatActivity {
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
-        DatabaseReference databaseReference = Database.DATABASE.getReference();
+        DatabaseReference dr = Database.DATABASE.getReference();
+
+
         //TODO: get query
         int numFood;
 

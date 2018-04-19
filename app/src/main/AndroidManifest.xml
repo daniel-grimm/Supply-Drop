@@ -6,8 +6,8 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="27" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -66,7 +66,11 @@
             android:exported="true"
             android:label="@string/title_activity_the_map" />
         <activity android:name=".LoginError" />
-        <activity android:name=".RequestFormError"></activity>
+        <activity android:name=".RequestFormError" />
+        <activity
+            android:name=".RequestSubmitted"
+            android:label="@string/title_activity_request_submitted"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

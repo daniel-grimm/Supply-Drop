@@ -77,4 +77,9 @@
     <!-- activity_request_form_error.xml strings -->
     <string name="default_error">Unknown error.</string>
 
+    <!-- activity_request_submitted.xml strings -->
+    <string name="title_activity_request_submitted">Success!</string>
+    <string name="request_submitted">Submitted!</string>
+    <string name="back_to_request_form">Finish</string>
+
 </resources>
