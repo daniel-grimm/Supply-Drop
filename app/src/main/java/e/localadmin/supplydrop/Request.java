@@ -37,53 +37,12 @@ public class Request {
         map.put("toothpaste", toothpaste.isChecked());
         map.put("soap", soap.isChecked());
         map.put("location", location.getText().toString());
-        map.put("user", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        map.put("user", FirebaseAuth.getInstance().getCurrentUser().getEmail());
         map.put("timestamp", new Date().toString());
     }
-
-    //Get the flags of all of the values.
-    public boolean getFood() {
-        return (boolean) map.get("food");
-    }
-
-    public boolean getSleepingStuff() {
-        return (boolean) map.get("sleepingStuff");
-    }
-
-    public boolean getSocks() {
-        return (boolean) map.get("socks");
-    }
-
-    public boolean getUnderwear() {
-        return (boolean) map.get("underwear");
-    }
-
-    public boolean getCoat() {
-        return (boolean) map.get("coat");
-    }
-
-    public boolean getToothbrush() {
-        return (boolean) map.get("toothbrush");
-    }
-
-    public boolean getToothpaste() {
-        return (boolean) map.get("toothpaste");
-    }
-
-    public boolean getSoap() {
-        return (boolean) map.get("soap");
-    }
-
-    public String getLocation() {
-        return (String) map.get("location");
-    }
-
-    public String getUser() {
-        return (String) map.get("user");
-    }
-
-    public String getDate() {
-        return (String) map.get("timestamp");
+    
+    public Map<String, Object> getMap() {
+        return map;
     }
 
     //Set the flags for all of the changeable fields

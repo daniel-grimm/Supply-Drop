@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 //Firebase imports
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
 public class RequestForm extends AppCompatActivity {
@@ -38,7 +39,6 @@ public class RequestForm extends AppCompatActivity {
         Request request = new Request(food, sleepingStuff, socks, underwear, coat, toothbrush,
                 toothpaste, soap, location);
 
-        //TODO: implement me
         if (validateAmountsRequested()) {
             //Add new request to the database
             DatabaseReference mDatabase = Database.DATABASE.getReference();
@@ -57,8 +57,8 @@ public class RequestForm extends AppCompatActivity {
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
-        DatabaseReference dr = Database.DATABASE.getReference();
-
+        //TODO:Implement me
+        DatabaseReference dr = Database.DATABASE.getReference("request");
 
         //TODO: get query
         int numFood;

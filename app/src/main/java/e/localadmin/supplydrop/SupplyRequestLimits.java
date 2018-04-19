@@ -17,7 +17,10 @@ public final class SupplyRequestLimits {
     public static final int NUM_UNDERWEAR = 2;
 
     //Hygiene products request limits
-    public static final int NUM_TOOTHBRUSH = 1;
-    public static final int NUM_TOOTHPASTE = 2;
+    public static final int NUM_TOOTHBRUSH = 2;
+    public static final int NUM_TOOTHPASTE = 3;
     public static final int NUM_SOAP = 2;
+
+    public static final int[] LIMITS = {NUM_FOOD, NUM_COATS, NUM_SLEEPING_MATERIALS, NUM_SOCKS,
+        NUM_UNDERWEAR, NUM_TOOTHBRUSH, NUM_TOOTHPASTE, NUM_SOAP};
 }
