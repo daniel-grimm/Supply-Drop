@@ -1,6 +1,7 @@
 /**This class defines a new request.
  * @author Daniel Grimm*/
 
+//default package
 package e.localadmin.supplydrop;
 
 import android.widget.CheckBox;
@@ -8,115 +9,123 @@ import android.widget.EditText;
 
 //Firebase
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 //language imports
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Request {
 
-    //Elements of the request.
-    private boolean food = false;
-    private boolean sleepingStuff = false;
-    private boolean socks = false;
-    private boolean underwear = false;
-    private boolean coat = false;
-    private boolean toothbrush = false;
-    private boolean toothpaste = false;
-    private boolean soap = false;
-    private String location = null;
-
-    private String date;
-    private String user;
+    private Map<String, Object> map;
 
     //Creates a new request object that is initialized with the objects
-    public Request(CheckBox foods, CheckBox sleepingStuffs, CheckBox sock, CheckBox underwears,
-                   CheckBox coats, CheckBox toothbrushs, CheckBox toothpastes, CheckBox soaps,
-                   EditText locations) {
+    public Request(CheckBox food, CheckBox sleepingStuff, CheckBox socks, CheckBox underwear,
+                   CheckBox coat, CheckBox toothbrush, CheckBox toothpaste, CheckBox soap,
+                   EditText location) {
 
-        food = foods.isChecked();
-        sleepingStuff = sleepingStuffs.isChecked();
-        socks = sock.isChecked();
-        underwear = underwears.isChecked();
-        coat =coats.isChecked();
-        toothbrush = toothbrushs.isChecked();
-        toothpaste = toothpastes.isChecked();
-        soap = soaps.isChecked();
-        location = locations.getText().toString();
-        user = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        date = new Date().toString();
+        //initialize the map structure
+        map = new HashMap<>();
+
+        //put all of the values into the map
+        map.put("food", food.isChecked());
+        map.put("sleepingStuff", sleepingStuff.isChecked());
+        map.put("socks", socks.isChecked());
+        map.put("underwear", underwear.isChecked());
+        map.put("coat", coat.isChecked());
+        map.put("toothbrush", toothbrush.isChecked());
+        map.put("toothpaste", toothpaste.isChecked());
+        map.put("soap", soap.isChecked());
+        map.put("location", location.getText().toString());
+        map.put("user", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        map.put("timestamp", new Date().toString());
     }
 
     //Get the flags of all of the values.
     public boolean getFood() {
-        return food;
+        return (boolean) map.get("food");
     }
 
     public boolean getSleepingStuff() {
-        return sleepingStuff;
+        return (boolean) map.get("sleepingStuff");
     }
 
     public boolean getSocks() {
-        return socks;
+        return (boolean) map.get("socks");
     }
 
     public boolean getUnderwear() {
-        return underwear;
+        return (boolean) map.get("underwear");
     }
 
     public boolean getCoat() {
-        return coat;
+        return (boolean) map.get("coat");
     }
 
     public boolean getToothbrush() {
-        return toothbrush;
+        return (boolean) map.get("toothbrush");
     }
 
     public boolean getToothpaste() {
-        return toothpaste;
+        return (boolean) map.get("toothpaste");
     }
 
     public boolean getSoap() {
-        return soap;
+        return (boolean) map.get("soap");
     }
 
     public String getLocation() {
-        return location;
+        return (String) map.get("location");
+    }
+
+    public String getUser() {
+        return (String) map.get("user");
+    }
+
+    public String getDate() {
+        return (String) map.get("timestamp");
     }
 
     //Set the flags for all of the changeable fields
     //Date and User are not changeable fields
-    public void setFood(boolean foods) {
-        food = foods;
+    public void setFood(boolean food) {
+        map.remove("food");
+        map.put("food", food)
     }
 
-    public void setSleepingStuff(boolean sleepingStuffs) {
-        sleepingStuff = sleepingStuffs;
+    public void setSleepingStuff(boolean sleepingStuff) {
+        map.remove("sleepingStuff");
+        map.put("sleepingStuff", sleepingStuff);
     }
 
     public void setSocks(boolean sock) {
-        socks = sock;
+        map.remove("sock");
+        map.put("sock", sock);
     }
 
-    public void setUnderwear(boolean underwears) {
-        underwear = underwears;
+    public void setUnderwear(boolean underwear) {
+        map.remove("underwear");
+        map.put("underwear", underwear);
     }
 
-    public void setCoat(boolean coats) {
-        coat = coats;
+    public void setCoat(boolean coat) {
+        map.remove("coat");
+        map.put("coat", coat);
     }
 
-    public void setToothbrush(boolean toothbrushs) {
-        toothbrush = toothbrushs;
+    public void setToothbrush(boolean toothbrush) {
+        map.remove("toothbrush");
+        map.put("toothbrush", toothbrush);
     }
 
-    public void setToothpaste(boolean toothpastes) {
-        toothpaste = toothpastes;
+    public void setToothpaste(boolean toothpaste) {
+        map.remove("toothpaste");
+        map.put("toothpaste", toothpaste);
     }
 
-    public void setSoap(boolean soaps) {
-        soap = soaps;
+    public void setSoap(boolean soap) {
+        map.remove("soap");
+        map.put("soap", soap);
     }
 
 }
