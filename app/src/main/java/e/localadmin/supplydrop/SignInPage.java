@@ -57,7 +57,9 @@ public class SignInPage extends Activity {
     /*This sends the user to a greeting message.*/
     public void greeting(View view) {
         boolean clicked = ((CheckBox) findViewById(R.id.organization)).isChecked();
-        boolean firstTime = false;
+        boolean firstTime = true;
+        SharedPreferences sp = getSharedPreferences(PREFS_NAME, )
+
 
         if (clicked) {
             //TODO: If the first time visiting the front page display a greeting

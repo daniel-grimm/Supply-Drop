@@ -12,8 +12,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 //Firebase imports
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 public class RequestForm extends AppCompatActivity {
 
@@ -58,10 +61,18 @@ public class RequestForm extends AppCompatActivity {
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
         //TODO:Implement me
-        DatabaseReference dr = Database.DATABASE.getReference("request");
+        /*DatabaseReference dr = Database.DATABASE.getReference("request");
+        dr.orderByChild("food").equalTo(FirebaseAuth.getInstance().getCurrentUser().getEmail()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        //TODO: get query
-        int numFood;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
 
         if (SupplyRequestLimits.NUM_FOOD <= 0) {
             return false;

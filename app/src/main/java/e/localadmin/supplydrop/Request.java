@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class Request {
 
-    private Map<String, Object> map;
+    private Map<String, Object> map;//A map of the values of each request
 
     //Creates a new request object that is initialized with the objects
     public Request(CheckBox food, CheckBox sleepingStuff, CheckBox socks, CheckBox underwear,
@@ -40,7 +40,7 @@ public class Request {
         map.put("user", FirebaseAuth.getInstance().getCurrentUser().getEmail());
         map.put("timestamp", new Date().toString());
     }
-    
+
     public Map<String, Object> getMap() {
         return map;
     }
