@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 //language imports
@@ -33,7 +34,6 @@ import java.util.Map;
 public class TheMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private DatabaseReference dr = Database.DATABASE.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,28 +85,31 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     private ArrayList<String> getLocations() {
         ArrayList<String> list = new ArrayList<>();
 
+        DatabaseReference requests = Database.DATABASE.getReference().child("request");
+        Query query = requests.orderByKey();
+
         ValueEventListener vel = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
-                for (DataSnapshot dataSnap : ds) {
-                    Map<String, Object> map = dataSnap.getValue(Map.class);
-                    String address = (String) map.get("location");
-                    Geocoder gc = new Geocoder(getApplicationContext());
-                    List<Address> list = null;
-                    try {
-                        list = gc.getFromLocationName(address, 1);
-                    } catch (IOException e) {
-                        e.printStackTrace();//print error message
-                    }
+                        for (DataSnapshot dataSnap : ds) {
+                            Map<String, Object> map = dataSnap.getValue(Map.class);
+                            String address = (String) map.get("location");
+                            Geocoder gc = new Geocoder(getApplicationContext());
+                            List<Address> list = null;
+                            try {
+                                list = gc.getFromLocationName(address, 1);
+                            } catch (IOException e) {
+                                e.printStackTrace();//print error message
+                            }
 
-                    //get the coordinates of the address
-                    double latitude = list.get(0).getLatitude();
-                    double longitude = list.get(0).getLongitude();
-                    LatLng latLng = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Fix me"));
-                }
+                            //get the coordinates of the address
+                            double latitude = list.get(0).getLatitude();
+                            double longitude = list.get(0).getLongitude();
+                            LatLng latLng = new LatLng(latitude, longitude);
+                            mMap.addMarker(new MarkerOptions().position(latLng).title("Fix me"));
+                        }
             }
 
             @Override

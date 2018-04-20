@@ -18,6 +18,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class RequestForm extends AppCompatActivity {
 
     @Override
@@ -47,6 +52,8 @@ public class RequestForm extends AppCompatActivity {
             DatabaseReference mDatabase = Database.DATABASE.getReference();
             String key = mDatabase.child("request").push().getKey();
             mDatabase.child("request").child(key).setValue(request);
+
+
 
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestSubmitted.class);
