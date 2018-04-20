@@ -1,10 +1,10 @@
 /**This class creates a map with data points of unfulfilled requests.*/
 package e.localadmin.supplydrop;
 
-
 //imports
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 
@@ -15,6 +15,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+//language imports
+import java.util.ArrayList;
+import java.util.Map;
 
 public class TheMap extends FragmentActivity implements OnMapReadyCallback {
 
@@ -58,10 +65,30 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        ArrayList<String> list = getLocations();
 
         // Add a marker in Sydney and move the camera
         LatLng seattle = new LatLng(47, -122);
         mMap.addMarker(new MarkerOptions().position(seattle).title("Marker near Seattle"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
+    }
+
+    //gets all unfulfilled request locations
+    private ArrayList<String> getLocations() {
+        ArrayList<String> list = new ArrayList<>();
+
+        ValueEventListener vel = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        };
+
+        return list;
     }
 }

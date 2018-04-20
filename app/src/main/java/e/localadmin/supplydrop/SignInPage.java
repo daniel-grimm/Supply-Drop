@@ -58,7 +58,6 @@ public class SignInPage extends Activity {
     public void greeting(View view) {
         boolean clicked = ((CheckBox) findViewById(R.id.organization)).isChecked();
         boolean firstTime = true;
-        SharedPreferences sp = getSharedPreferences(PREFS_NAME, )
 
 
         if (clicked) {
