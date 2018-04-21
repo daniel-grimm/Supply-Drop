@@ -6,7 +6,6 @@ package e.localadmin.supplydrop;
 import android.location.Address;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.util.ObjectsCompat;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
@@ -22,7 +21,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 //language imports
@@ -30,7 +28,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TheMap extends FragmentActivity implements OnMapReadyCallback {
 
@@ -96,27 +93,21 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                     Object returnVal = dataSnap.getValue(Object.class);
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) returnVal;
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
-                    String address = "Fix me";
-                }
-
-                /*for (DataSnapshot dataSnap : ds) {
-                    Map<String, Object> map = dataSnap.getValue(Map.class);
                     String address = (String) map.get("location");
-                    Geocoder gc = new Geocoder(getApplicationContext());
+                    Geocoder gc = new Geocoder((getApplicationContext()));
                     List<Address> list = null;
                     try {
                         list = gc.getFromLocationName(address, 1);
-                    } catch (IOException e) {
-                        e.printStackTrace();//print error message
+                    } catch (IOException ioe) {
+                        ioe.printStackTrace();
                     }
 
-                    //get the coordinates of the address
                     double latitude = list.get(0).getLatitude();
                     double longitude = list.get(0).getLongitude();
                     LatLng latLng = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(latLng).title((String)
-                            map.get("user")));
-                }*/
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Test"));
+                    String title = "";
+                }
             }
 
             @Override
