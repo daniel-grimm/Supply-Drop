@@ -6,6 +6,7 @@ package e.localadmin.supplydrop;
 import android.location.Address;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.util.ObjectsCompat;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 //language imports
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,6 +91,13 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+
+                for (DataSnapshot dataSnap : ds) {
+                    Object returnVal = dataSnap.getValue(Object.class);
+                    HashMap<String, Object> wrapper = (HashMap<String, Object>) returnVal;
+                    HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
+                    String address = "Fix me";
+                }
 
                 /*for (DataSnapshot dataSnap : ds) {
                     Map<String, Object> map = dataSnap.getValue(Map.class);
