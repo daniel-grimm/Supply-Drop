@@ -2,9 +2,7 @@
 package e.localadmin.supplydrop;
 
 //imports
-import android.content.Context;
 import android.location.Address;
-import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,9 +74,9 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         ArrayList<String> list = getLocations();
 
         // Add a marker in Sydney and move the camera
-        LatLng seattle = new LatLng(47, -122);
+        /*LatLng seattle = new LatLng(47, -122);
         mMap.addMarker(new MarkerOptions().position(seattle).title("Marker near Seattle"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));*/
     }
 
     //gets all unfulfilled request locations
@@ -86,37 +84,36 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         ArrayList<String> list = new ArrayList<>();
 
         DatabaseReference requests = Database.DATABASE.getReference().child("request");
-        Query query = requests.orderByKey();
+        requests.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
-        ValueEventListener vel = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+                for (DataSnapshot dataSnap : ds) {
+                    Map<String, Object> map = dataSnap.getValue(Map.class);
+                    String address = (String) map.get("location");
+                    Geocoder gc = new Geocoder(getApplicationContext());
+                    List<Address> list = null;
+                    try {
+                        list = gc.getFromLocationName(address, 1);
+                    } catch (IOException e) {
+                        e.printStackTrace();//print error message
+                    }
 
-                        for (DataSnapshot dataSnap : ds) {
-                            Map<String, Object> map = dataSnap.getValue(Map.class);
-                            String address = (String) map.get("location");
-                            Geocoder gc = new Geocoder(getApplicationContext());
-                            List<Address> list = null;
-                            try {
-                                list = gc.getFromLocationName(address, 1);
-                            } catch (IOException e) {
-                                e.printStackTrace();//print error message
-                            }
-
-                            //get the coordinates of the address
-                            double latitude = list.get(0).getLatitude();
-                            double longitude = list.get(0).getLongitude();
-                            LatLng latLng = new LatLng(latitude, longitude);
-                            mMap.addMarker(new MarkerOptions().position(latLng).title("Fix me"));
-                        }
+                    //get the coordinates of the address
+                    double latitude = list.get(0).getLatitude();
+                    double longitude = list.get(0).getLongitude();
+                    LatLng latLng = new LatLng(latitude, longitude);
+                    mMap.addMarker(new MarkerOptions().position(latLng).title((String)
+                            map.get("user")));
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w("", databaseError.toException());
             }
-        };
+        });
 
         return list;
     }
