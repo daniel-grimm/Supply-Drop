@@ -52,8 +52,7 @@ public class RequestForm extends AppCompatActivity {
             DatabaseReference mDatabase = Database.DATABASE.getReference();
             String key = mDatabase.child("request").push().getKey();
             mDatabase.child("request").child(key).setValue(request);
-
-
+            
 
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestSubmitted.class);
