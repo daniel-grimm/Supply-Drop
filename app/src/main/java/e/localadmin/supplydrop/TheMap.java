@@ -74,9 +74,9 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         ArrayList<String> list = getLocations();
 
         // Add a marker in Sydney and move the camera
-        /*LatLng seattle = new LatLng(47, -122);
+        LatLng seattle = new LatLng(47, -122);
         mMap.addMarker(new MarkerOptions().position(seattle).title("Marker near Seattle"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));*/
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
     }
 
     //gets all unfulfilled request locations
