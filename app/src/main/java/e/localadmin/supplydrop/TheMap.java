@@ -1,4 +1,5 @@
-/**This class creates a map with data points of unfulfilled requests.*/
+/**This class creates a map with data points of unfulfilled requests.
+ * @author Daniel Grimm*/
 package e.localadmin.supplydrop;
 
 //imports
@@ -89,7 +90,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
-                for (DataSnapshot dataSnap : ds) {
+                /*for (DataSnapshot dataSnap : ds) {
                     Map<String, Object> map = dataSnap.getValue(Map.class);
                     String address = (String) map.get("location");
                     Geocoder gc = new Geocoder(getApplicationContext());
@@ -106,7 +107,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                     LatLng latLng = new LatLng(latitude, longitude);
                     mMap.addMarker(new MarkerOptions().position(latLng).title((String)
                             map.get("user")));
-                }
+                }*/
             }
 
             @Override

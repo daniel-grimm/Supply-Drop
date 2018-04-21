@@ -12,16 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 //Firebase imports
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class RequestForm extends AppCompatActivity {
 
@@ -52,7 +43,7 @@ public class RequestForm extends AppCompatActivity {
             DatabaseReference mDatabase = Database.DATABASE.getReference();
             String key = mDatabase.child("request").push().getKey();
             mDatabase.child("request").child(key).setValue(request);
-            
+
 
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestSubmitted.class);
@@ -67,20 +58,8 @@ public class RequestForm extends AppCompatActivity {
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
         //TODO:Implement me
-        /*DatabaseReference dr = Database.DATABASE.getReference("request");
-        dr.orderByChild("food").equalTo(FirebaseAuth.getInstance().getCurrentUser().getEmail()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });*/
-
-        if (SupplyRequestLimits.NUM_FOOD <= 0) {
+        /*if (SupplyRequestLimits.NUM_FOOD <= 0) {
             return false;
         } else if (SupplyRequestLimits.NUM_COATS <= 0) {
             return false;
@@ -96,7 +75,7 @@ public class RequestForm extends AppCompatActivity {
             return false;
         } else if (SupplyRequestLimits.NUM_SOAP <= 0) {
             return false;
-        }
+        }*/
         return true;
     }
 
