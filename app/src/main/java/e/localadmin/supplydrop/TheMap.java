@@ -71,7 +71,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        ArrayList<String> list = getLocations();
+        getLocations();//Add all of the locations to the map
 
         // Add a marker in Sydney and move the camera
         LatLng seattle = new LatLng(47, -122);
@@ -80,7 +80,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
     }
 
     //gets all unfulfilled request locations
-    private ArrayList<String> getLocations() {
+    private void getLocations() {
         ArrayList<String> list = new ArrayList<>();
 
         DatabaseReference requests = Database.DATABASE.getReference().child("request");
@@ -89,7 +89,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
-                for (DataSnapshot dataSnap : ds) {
+                /*for (DataSnapshot dataSnap : ds) {
                     Object returnVal = dataSnap.getValue(Object.class);
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) returnVal;
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
@@ -107,7 +107,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                     LatLng latLng = new LatLng(latitude, longitude);
                     mMap.addMarker(new MarkerOptions().position(latLng).title("Test"));
                     String title = "";
-                }
+                }*/
             }
 
             @Override
@@ -115,7 +115,5 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                 Log.w("", databaseError.toException());
             }
         });
-
-        return list;
     }
 }
