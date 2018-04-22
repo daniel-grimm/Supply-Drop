@@ -4,18 +4,23 @@
 //default package
 package e.localadmin.supplydrop;
 
-//imports
+//Language imports
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 
-//Graph imports
+//Firebase imports
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+//GraphView imports
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
-//For the graph
 
 public class TheDashboard extends AppCompatActivity {
 
@@ -23,7 +28,7 @@ public class TheDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_dashboard);
-        initializeGraphs();
+        initializeGraphs();//Graph all of the data
     }
 
     /**Send the user to the map view.*/
@@ -46,13 +51,31 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeOverall() {
-        GraphView requests = findViewById(R.id.num_requests);
-        LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
+        //TODO: Change to number of requests by day
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+                int i = 0;
+                for (DataSnapshot dataSnap : ds) {
+                    i++;
+                }
+
+                GraphView requests = findViewById(R.id.num_requests);
+                LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
+                        new DataPoint(0, i)
+                });
+                requests.addSeries(dataPoints);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
         });
-        requests.addSeries(dataPoints);
     }
 
     private void initializeFood() {
