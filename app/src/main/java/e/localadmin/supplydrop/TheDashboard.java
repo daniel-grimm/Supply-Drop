@@ -5,6 +5,7 @@
 package e.localadmin.supplydrop;
 
 //Language imports
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -79,6 +80,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeFood() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView food = findViewById(R.id.num_food);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -89,6 +102,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeSocks() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView socks = findViewById(R.id.num_socks);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -99,6 +124,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeUnderwear() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView underwear = findViewById(R.id.num_underwear);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -109,6 +146,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeSleepingStuff() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView sleepStuff = findViewById(R.id.num_sleeping_equipment);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -119,6 +168,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeCoat() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView coat = findViewById(R.id.num_coat);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -129,6 +190,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeToothbrush() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView toothbrush = findViewById(R.id.num_toothbrush);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -139,6 +212,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeToothpaste() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView toothpaste = findViewById(R.id.num_toothpaste);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
@@ -149,6 +234,18 @@ public class TheDashboard extends AppCompatActivity {
     }
 
     private void initializeSoap() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //TODO: Implement me
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         GraphView soap = findViewById(R.id.num_soap);
         LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
