@@ -23,6 +23,8 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.HashMap;
+
 public class TheDashboard extends AppCompatActivity {
 
     @Override
@@ -69,7 +71,6 @@ public class TheDashboard extends AppCompatActivity {
                         new DataPoint(0, i)
                 });
                 requests.addSeries(dataPoints);
-
             }
 
             @Override
@@ -84,7 +85,22 @@ public class TheDashboard extends AppCompatActivity {
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //TODO: Implement me
+                Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+                for (DataSnapshot dataSnap : ds) {
+                    Object returnVal = dataSnap.getValue();
+                    HashMap<String, Object> wrapper = (HashMap<String, Object>) returnVal;
+                    HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
+                    boolean getValue = (boolean) map.get("food");
+                }
+
+                //TODO: Change to requests by time
+                GraphView food = findViewById(R.id.num_food);
+                LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
+                        new DataPoint(0, 1),
+                        new DataPoint(1, 5),
+                        new DataPoint(2, 3)
+                });
+                food.addSeries(dataPoints);
             }
 
             @Override
@@ -92,13 +108,6 @@ public class TheDashboard extends AppCompatActivity {
                 Log.w("", databaseError.toException());
             }
         });
-        GraphView food = findViewById(R.id.num_food);
-        LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
-        });
-        food.addSeries(dataPoints);
     }
 
     private void initializeSocks() {
