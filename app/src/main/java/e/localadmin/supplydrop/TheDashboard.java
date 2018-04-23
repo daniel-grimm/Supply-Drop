@@ -23,11 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 //GraphView imports
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.BarGraphSeries;
+
+import java.util.HashMap;
 
 //Language imports
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class TheDashboard extends AppCompatActivity {
 
@@ -55,17 +56,42 @@ public class TheDashboard extends AppCompatActivity {
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                int[] numTypes = new int[8];
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
                 int i = 0;
                 for (DataSnapshot dataSnap : ds) {
                     i++;
+                    HashMap<String, Object> wrapper = (HashMap<String, Object>) dataSnap.getValue();
+                    HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
+                    boolean food = (boolean) map.get("food");
+                    boolean sleepingStuff = (boolean) map.get("sleepingStuff");
+                    boolean socks = (boolean) map.get("socks");
+                    boolean underwear = (boolean) map.get("underwear");
+                    boolean coat = (boolean) map.get("coat");
+                    boolean toothbrush = (boolean) map.get("toothbrush");
+                    boolean toothpaste = (boolean) map.get("toothpaste");
+                    boolean soap = (boolean) map.get("soap");
+                    if (food) { numTypes[0]++; }
+                    if (sleepingStuff) { numTypes[1]++; }
+                    if (socks) { numTypes[2]++; }
+                    if (underwear) { numTypes[3]++; }
+                    if (coat) { numTypes[4]++; }
+                    if (toothbrush) { numTypes[5]++; }
+                    if (toothpaste) { numTypes[6]++; }
+                    if (soap) { numTypes[7]++; }
                 }
 
                 GraphView requests = findViewById(R.id.num_requests);
-                LineGraphSeries<DataPoint> dataPoints = new LineGraphSeries<>(new DataPoint[] {
-                        new DataPoint(0, 0),
-                        new DataPoint(1, i)
+
+                BarGraphSeries<DataPoint> dataPoints = new BarGraphSeries<>(new DataPoint[] {
+                        new DataPoint(0, numTypes[0]),
+                        new DataPoint(1, numTypes[1]),
+                        new DataPoint(2, numTypes[2]),
+                        new DataPoint(3, numTypes[3]),
+                        new DataPoint(4, numTypes[4]),
+                        new DataPoint(5, numTypes[5]),
+                        new DataPoint(6, numTypes[6]),
+                        new DataPoint(7, numTypes[7])
                 });
                 requests.addSeries(dataPoints);
             }
