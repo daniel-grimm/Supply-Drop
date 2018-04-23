@@ -23,6 +23,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+//Language imports
 import java.util.HashMap;
 
 public class TheDashboard extends AppCompatActivity {
