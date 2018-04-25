@@ -89,34 +89,46 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                     String location = (String) map.get("location");
                     if (location.length() >= 5) {
                         Geocoder gc = new Geocoder(getApplicationContext());
-                        List<Address> list = new ArrayList<>();
+                        List<Address> list;
                         try {
                             list = gc.getFromLocationName(location, 1);
+
+                            //list not initialized
+                            if (list == null) {
+                                continue;
+                            }
+
+                            //no results
+                            if (list.size() == 0) {
+                                continue;
+                            }
+
+                            //Get the coordinates of the address
+                            double lat = list.get(0).getLatitude();
+                            double lon = list.get(0).getLongitude();
+                            LatLng latlng = new LatLng(lat, lon);
+                            mMap.addMarker(new MarkerOptions().position(latlng).title((String) map.get("username")));
+
                         } catch(IOException ioe) {
-                            ioe.printStackTrace();
+                            continue;//keep looping
                         }
-
-//                        double lat = list.get(0).getLatitude();
-//                        double lon = list.get(0).getLongitude();
-//                        LatLng latLng = new LatLng(lat, lon);
-//                        mMap.addMarker(new MarkerOptions().position(latLng).title((String) map.get("username")));
                     }
-
-
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                //
+                Log.w("", databaseError.toException());
             }
         });
     }
 
+    /*Zoom into the map.*/
     public void zoomIn(View view) {
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
     }
 
+    /*Zoom out of the map.*/
     public void zoomOut(View view) {
         mMap.animateCamera(CameraUpdateFactory.zoomOut());
     }
