@@ -63,16 +63,16 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
         getLocations();//Add all of the locations to the map
 
+        //Set up the UI
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setAllGesturesEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(true);
 
+        //Initialize the cammera position
         LatLng seattle = new LatLng(47.606600, -122.332984);
         mMap.addMarker(new MarkerOptions().position(seattle).title("SPL"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(seattle, 10), 5000, null);
-
-
     }
 
     //gets all unfulfilled request locations
