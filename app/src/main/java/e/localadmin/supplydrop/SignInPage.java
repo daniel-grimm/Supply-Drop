@@ -23,8 +23,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 //Language imports
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
@@ -57,8 +64,7 @@ public class SignInPage extends Activity {
     /*This sends the user to a greeting message.*/
     public void greeting(View view) {
         boolean clicked = ((CheckBox) findViewById(R.id.organization)).isChecked();
-        boolean firstTime = true;
-
+        boolean firstTime = false;
 
         if (clicked) {
             //TODO: If the first time visiting the front page display a greeting
