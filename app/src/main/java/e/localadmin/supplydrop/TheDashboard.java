@@ -60,9 +60,14 @@ public class TheDashboard extends AppCompatActivity {
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
                 int i = 0;
                 for (DataSnapshot dataSnap : ds) {
+                    //number of total requests
                     i++;
+
+                    //Get all requests
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) dataSnap.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
+
+                    //Get all of the values of the stuff
                     boolean food = (boolean) map.get("food");
                     boolean sleepingStuff = (boolean) map.get("sleepingStuff");
                     boolean socks = (boolean) map.get("socks");
@@ -71,6 +76,8 @@ public class TheDashboard extends AppCompatActivity {
                     boolean toothbrush = (boolean) map.get("toothbrush");
                     boolean toothpaste = (boolean) map.get("toothpaste");
                     boolean soap = (boolean) map.get("soap");
+
+                    //Increase the count of that type of supply.
                     if (food) { numTypes[0]++; }
                     if (sleepingStuff) { numTypes[1]++; }
                     if (socks) { numTypes[2]++; }

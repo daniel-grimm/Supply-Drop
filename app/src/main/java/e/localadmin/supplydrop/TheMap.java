@@ -81,38 +81,38 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
 
     //gets all unfulfilled request locations
     private void getLocations() {
-        ArrayList<String> list = new ArrayList<>();
-
-        DatabaseReference requests = Database.DATABASE.getReference().child("request");
-        requests.addValueEventListener(new ValueEventListener() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
-
-                /*for (DataSnapshot dataSnap : ds) {
-                    Object returnVal = dataSnap.getValue(Object.class);
-                    HashMap<String, Object> wrapper = (HashMap<String, Object>) returnVal;
+                for (DataSnapshot dataSnap : ds) {
+                    HashMap<String, Object> wrapper = (HashMap<String, Object>) dataSnap.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
-                    String address = (String) map.get("location");
-                    Geocoder gc = new Geocoder((getApplicationContext()));
-                    List<Address> list = null;
-                    try {
-                        list = gc.getFromLocationName(address, 1);
-                    } catch (IOException ioe) {
-                        ioe.printStackTrace();
+
+                    String location = (String) map.get("location");
+                    if (location.length() >= 5) {
+                        Geocoder gc = new Geocoder(getApplicationContext());
+                        List<Address> list = new ArrayList<>();
+                        try {
+                            list = gc.getFromLocationName(location, 1);
+                        } catch(IOException ioe) {
+                            ioe.printStackTrace();
+                        }
+
+//                        double lat = list.get(0).getLatitude();
+//                        double lon = list.get(0).getLongitude();
+//                        LatLng latLng = new LatLng(lat, lon);
+//                        mMap.addMarker(new MarkerOptions().position(latLng).title((String) map.get("username")));
                     }
 
-                    double latitude = list.get(0).getLatitude();
-                    double longitude = list.get(0).getLongitude();
-                    LatLng latLng = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Test"));
-                    String title = "";
-                }*/
+
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w("", databaseError.toException());
+                //
             }
         });
     }
