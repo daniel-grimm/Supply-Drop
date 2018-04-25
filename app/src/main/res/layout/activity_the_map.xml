@@ -7,19 +7,21 @@
     android:orientation="vertical" >
 
     <fragment
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TheMap" />
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TheMap" />
 
     <Button
         android:id="@+id/go_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:onClick="goToTheDashboard"
         android:padding="16dp"
-        android:text="@string/dashboard_button"
-        android:onClick="goToTheDashboard"/>
+        android:text="@string/dashboard_button" />
+
 </RelativeLayout>

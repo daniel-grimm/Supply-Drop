@@ -48,16 +48,6 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         startActivity(new Intent(TheMap.this, TheDashboard.class));
     }
 
-    /**This method adds a marker to the map*/
-    public void addMarker(String address, int requestID) {
-        //TODO: If there is a google map api call to translate string address into lat/long
-        //coordinates.
-
-        //TODO: Get the username of the person requesting
-        //LatLng latitudeLongitude = new LatLng(00, 00);
-        //mMap.addMarker(new MarkerOptions().position(LatitudeLongitude).title(
-    }
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -73,10 +63,16 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
         getLocations();//Add all of the locations to the map
 
-        // Add a marker in Sydney and move the camera
-        LatLng seattle = new LatLng(47, -122);
-        mMap.addMarker(new MarkerOptions().position(seattle).title("Marker near Seattle"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setAllGesturesEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setMapToolbarEnabled(true);
+
+        LatLng seattle = new LatLng(47.606600, -122.332984);
+        mMap.addMarker(new MarkerOptions().position(seattle).title("SPL"));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(seattle, 10), 5000, null);
+
+
     }
 
     //gets all unfulfilled request locations
@@ -115,5 +111,13 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                 //
             }
         });
+    }
+
+    public void zoomIn(View view) {
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+    }
+
+    public void zoomOut(View view) {
+        mMap.animateCamera(CameraUpdateFactory.zoomOut());
     }
 }

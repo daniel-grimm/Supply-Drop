@@ -55,6 +55,8 @@
     <!-- activity_the_map.xml strings -->
     <string name="title_activity_the_map">The Map</string>
     <string name="dashboard_button">Dashboard</string>
+    <string name="zoom_in">Zoom in</string>
+    <string name="zoom_out">Zoom out</string>
 
     <!-- activity_user__home__page.xml strings -->
     <string name="title_activity_home_page">Supplies Request Form</string>
