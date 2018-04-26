@@ -6,13 +6,18 @@ package e.localadmin.supplydrop;
 //imports
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 //Firebase imports
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class RequestForm extends AppCompatActivity {
 
@@ -60,6 +65,19 @@ public class RequestForm extends AppCompatActivity {
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        Query query;
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
         //TODO:Implement me
 
         /*if (SupplyRequestLimits.NUM_FOOD <= 0) {

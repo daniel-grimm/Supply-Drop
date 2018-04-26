@@ -8,30 +8,17 @@ package e.localadmin.supplydrop;
 //imports
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;                           //Inherits Android
-import android.preference.PreferenceManager;
-import android.provider.SyncStateContract;
 import android.view.View;                           //Allows for buttons to work
 import android.widget.CheckBox;
 
 
 //Firebase imports
 import com.firebase.ui.auth.AuthUI;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 
 //Language imports
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 /**A login screen that offers login via username/password.*/
 public class SignInPage extends Activity {
