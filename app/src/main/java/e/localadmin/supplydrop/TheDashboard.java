@@ -4,8 +4,7 @@
 //default package
 package e.localadmin.supplydrop;
 
-//Language imports
-import android.provider.ContactsContract;
+//Android imports
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -13,11 +12,9 @@ import android.util.Log;
 import android.view.View;
 
 //Firebase imports
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 //GraphView imports
@@ -25,10 +22,8 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.BarGraphSeries;
 
-import java.util.HashMap;
-
 //Language imports
-
+import java.util.HashMap;
 
 public class TheDashboard extends AppCompatActivity {
 
@@ -38,6 +33,9 @@ public class TheDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_the_dashboard);
         initializeGraphs();//Graph all of the data
     }
+
+    @Override
+    public void onBackPressed() {}
 
     /**Send the user to the map view.*/
     public void goToMap(View view) {

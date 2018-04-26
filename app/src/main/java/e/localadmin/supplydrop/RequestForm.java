@@ -22,6 +22,9 @@ public class RequestForm extends AppCompatActivity {
         setContentView(R.layout.activity_user__home__page);
     }
 
+    @Override
+    public void onBackPressed() {}
+
     /**This method submits a request for supplies to the database.*/
     public void submitRequest(View view) {
         //Get the objects from the survey
