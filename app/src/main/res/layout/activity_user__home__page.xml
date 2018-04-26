@@ -215,6 +215,13 @@
                 android:onClick="submitRequest"
                 android:text="@string/submit_button" />
 
+            <Button
+                android:id="@+id/request_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="goToRequestHistory"
+                android:text="Request History" />
+
         </LinearLayout>
     </ScrollView>
 

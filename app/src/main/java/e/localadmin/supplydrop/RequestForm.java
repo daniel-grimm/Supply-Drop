@@ -27,6 +27,7 @@ public class RequestForm extends AppCompatActivity {
         setContentView(R.layout.activity_user__home__page);
     }
 
+    /*Prevent the user from using the back button*/
     @Override
     public void onBackPressed() {}
 
@@ -62,9 +63,19 @@ public class RequestForm extends AppCompatActivity {
         }
     }
 
+    /**/
+    public void goToRequestHistory(View view) {
+        startActivity(new Intent(RequestForm.this, OutstandingRequests.class));
+    }
+
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
      * requested too many supplies, else return false.*/
     private boolean validateAmountsRequested() {
+        //If nothing entered into the supply form reject the request
+        if (empty()) {
+            return false;
+        }
+
         DatabaseReference dr = Database.DATABASE.getReference().child("request");
         Query query;
         //TODO: Implement me
@@ -98,6 +109,35 @@ public class RequestForm extends AppCompatActivity {
             return false;
         }*/
         return true;
+    }
+
+    /*If no values entered into the form then true is returned*/
+    private boolean empty() {
+        CheckBox food = findViewById(R.id.food_checkbox);
+        CheckBox sleepingStuff = findViewById(R.id.sleeping_stuff_checkbox);
+        CheckBox socks = findViewById(R.id.socks_checkbox);
+        CheckBox underwear = findViewById(R.id.underwear_checkbox);
+        CheckBox coat = findViewById(R.id.coat_checkbox);
+        CheckBox toothbrush = findViewById(R.id.toothbrush_checkbox);
+        CheckBox toothpaste = findViewById(R.id.toothpaste_checkbox);
+        CheckBox soap = findViewById(R.id.soap_checkbox);
+        EditText location = findViewById(R.id.location_header);
+
+        boolean foodz = food.isChecked();
+        boolean sleepingStuffz = sleepingStuff.isChecked();
+        boolean sockz = socks.isChecked();
+        boolean underwearz = underwear.isChecked();
+        boolean coatz = underwear.isChecked();
+        boolean toothbrushz = toothbrush.isChecked();
+        boolean toothpastez = toothpaste.isChecked();
+        boolean soapz = soap.isChecked();
+        String locationz = location.getText().toString();
+
+        if (!foodz && ! sleepingStuffz && !sockz && !underwearz && !coatz && !toothbrushz &&
+                !toothpastez && !soapz && (locationz.length() == 0)) {
+            return true;
+        }
+        return false;
     }
 
 }
