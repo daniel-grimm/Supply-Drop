@@ -16,6 +16,9 @@ public class RequestFormError extends AppCompatActivity {
         setContentView(R.layout.activity_request_form_error);
     }
 
+    @Override
+    public void onBackPressed() {}
+
     /**This method returns the user to the supply request form*/
     public void goToRequestForm(View view) {
         startActivity(new Intent(RequestFormError.this, RequestForm.class));

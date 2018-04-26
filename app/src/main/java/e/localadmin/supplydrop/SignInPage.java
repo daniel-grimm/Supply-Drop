@@ -54,14 +54,12 @@ public class SignInPage extends Activity {
         boolean firstTime = false;
 
         if (clicked) {
-            //TODO: If the first time visiting the front page display a greeting
             if (firstTime) {
                 startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
             } else {
                 startActivity(new Intent(SignInPage.this, TheDashboard.class));
             }
         } else {
-            //TODO: If the first time visiting te front page display a greeting
             if (firstTime) {
                 startActivity(new Intent(SignInPage.this, IndividualGreeting.class));
             } else {

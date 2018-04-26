@@ -67,6 +67,7 @@ public class RequestForm extends AppCompatActivity {
     private boolean validateAmountsRequested() {
         DatabaseReference dr = Database.DATABASE.getReference().child("request");
         Query query;
+        //TODO: Implement me
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -78,7 +79,6 @@ public class RequestForm extends AppCompatActivity {
                 Log.w("", databaseError.toException());
             }
         });
-        //TODO:Implement me
 
         /*if (SupplyRequestLimits.NUM_FOOD <= 0) {
             return false;
