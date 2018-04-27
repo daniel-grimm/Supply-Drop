@@ -46,6 +46,8 @@ public class OutstandingRequests extends AppCompatActivity {
                 int[] values = new int[8];
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
+                //Determine if the request was submitted by this user, and then count the number,
+                //of items requested, by type.
                 for (DataSnapshot dataSnap : ds) {
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) dataSnap.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
