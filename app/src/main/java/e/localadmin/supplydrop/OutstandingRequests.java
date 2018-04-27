@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+//language imports
 import java.util.HashMap;
 
 public class OutstandingRequests extends AppCompatActivity {
@@ -53,10 +54,19 @@ public class OutstandingRequests extends AppCompatActivity {
                     if (!storedUser.equals(user)) {
                         continue;//not the same user
                     } else {
-                        //TODO:
+                        //Count the number of requests the person has per type
+                        values[0] += toInt((boolean) map.get("food"));
+                        values[1] += toInt((boolean) map.get("sleepingStuff"));
+                        values[2] += toInt((boolean) map.get("socks"));
+                        values[3] += toInt((boolean) map.get("underwear"));
+                        values[4] += toInt((boolean) map.get("coat"));
+                        values[5] += toInt((boolean) map.get("toothbrush"));
+                        values[6] += toInt((boolean) map.get("toothpaste"));
+                        values[7] += toInt((boolean) map.get("soap"));
                     }
                 }
 
+                //Get all of the graphical elements
                 TextView food = findViewById(R.id.food_stuff);
                 TextView sleepingStuff = findViewById(R.id.sleeping_stuff);
                 TextView socks = findViewById(R.id.socks_stuff);
@@ -66,21 +76,22 @@ public class OutstandingRequests extends AppCompatActivity {
                 TextView toothpaste = findViewById(R.id.toothpaste_stuff);
                 TextView soap = findViewById(R.id.soap_stuff);
 
-                String setToVal = "" + "" + " requests";
+                //Set the text values for all of the elements
+                String setToVal = "" + values[0] + " requests";
                 food.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[1] + " requests";
                 sleepingStuff.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[2] + " requests";
                 socks.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[3] + " requests";
                 underwear.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[4] + " requests";
                 coat.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[5] + " requests";
                 toothbrush.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[6] + " requests";
                 toothpaste.setText(setToVal);
-                setToVal = "" + "" + " requests";
+                setToVal = "" + values[7] + " requests";
                 soap.setText(setToVal);
             }
 
@@ -89,6 +100,13 @@ public class OutstandingRequests extends AppCompatActivity {
                 Log.w("", databaseError.toException());
             }
         });
+    }
+
+    private int toInt(boolean b) {
+        if (b) {
+            return 1;
+        }
+        return 0;
     }
 
 }
