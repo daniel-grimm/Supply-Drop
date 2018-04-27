@@ -42,6 +42,7 @@ public class OutstandingRequests extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                int[] values = new int[8];
                 Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
 
                 for (DataSnapshot dataSnap : ds) {
@@ -65,7 +66,22 @@ public class OutstandingRequests extends AppCompatActivity {
                 TextView toothpaste = findViewById(R.id.toothpaste_stuff);
                 TextView soap = findViewById(R.id.soap_stuff);
 
-                food.setText("");
+                String setToVal = "" + "" + " requests";
+                food.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                sleepingStuff.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                socks.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                underwear.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                coat.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                toothbrush.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                toothpaste.setText(setToVal);
+                setToVal = "" + "" + " requests";
+                soap.setText(setToVal);
             }
 
             @Override
