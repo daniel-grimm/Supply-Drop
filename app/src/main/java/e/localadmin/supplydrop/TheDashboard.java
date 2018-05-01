@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 
 //Firebase imports
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -113,8 +114,9 @@ public class TheDashboard extends AppCompatActivity {
     /*Find the requests of a user*/
     public void searchDatabaseForRequests() {
         //Get the visual elements
-        RecyclerView recyclerView = findViewById(R.id.search_results);
+        final RecyclerView recyclerView = findViewById(R.id.search_results);
         String input = ((EditText) findViewById(R.id.search_box)).getText().toString();
+        final String currentUser = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         //Query the database
         DatabaseReference dr = Database.DATABASE.getReference().child("request");
@@ -125,7 +127,10 @@ public class TheDashboard extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnap) {
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) ds.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
-
+                    String requestUser = (String) map.get("user");
+                    if (currentUser.equals(requestUser)) {
+                        //
+                    }
                 }
             }
 
