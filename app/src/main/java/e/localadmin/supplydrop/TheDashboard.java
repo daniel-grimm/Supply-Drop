@@ -8,8 +8,10 @@ package e.localadmin.supplydrop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 //Firebase imports
 import com.google.firebase.database.DataSnapshot;
@@ -99,6 +101,32 @@ public class TheDashboard extends AppCompatActivity {
                         new DataPoint(7, numTypes[7])
                 });
                 requests.addSeries(dataPoints);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("", databaseError.toException());
+            }
+        });
+    }
+
+    /*Find the requests of a user*/
+    public void searchDatabaseForRequests() {
+        //Get the visual elements
+        RecyclerView recyclerView = findViewById(R.id.search_results);
+        String input = ((EditText) findViewById(R.id.search_box)).getText().toString();
+
+        //Query the database
+        DatabaseReference dr = Database.DATABASE.getReference().child("request");
+        dr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> dataSnap = dataSnapshot.getChildren();
+                for (DataSnapshot ds : dataSnap) {
+                    HashMap<String, Object> wrapper = (HashMap<String, Object>) ds.getValue();
+                    HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
+
+                }
             }
 
             @Override
