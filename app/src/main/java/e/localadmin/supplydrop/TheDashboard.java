@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -115,50 +117,26 @@ public class TheDashboard extends AppCompatActivity {
         });
     }
 
-    /*Find the requests of a user*/
-    public void searchDatabaseForRequests() {
-        //Get the visual elements
-        ListView listView = findViewById(R.id.search_results);
-        String input = ((EditText) findViewById(R.id.search_box)).getText().toString();
-        final String currentUser = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+    class CustomAdapater extends BaseAdapter {
 
-        String[] foods = {"Bacon", "Ham", "Tuna", "Candy"};
+        @Override
+        public int getCount() {
+            return 0;
+        }
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_the_dashboard, foods);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
 
-            //
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //
-                Toast.makeText(getApplicationContext(),
-                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
 
-
-        //Query the database
-        DatabaseReference dr = Database.DATABASE.getReference().child("request");
-        dr.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> dataSnap = dataSnapshot.getChildren();
-                for (DataSnapshot ds : dataSnap) {
-                    HashMap<String, Object> wrapper = (HashMap<String, Object>) ds.getValue();
-                    HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
-                    String requestUser = (String) map.get("user");
-                    if (currentUser.equals(requestUser)) {
-                        //
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("", databaseError.toException());
-            }
-        });
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return null;
+        }
     }
 }
