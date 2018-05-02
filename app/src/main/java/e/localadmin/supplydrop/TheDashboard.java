@@ -8,10 +8,14 @@ package e.localadmin.supplydrop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 //Firebase imports
 import com.google.firebase.auth.FirebaseAuth;
@@ -114,9 +118,26 @@ public class TheDashboard extends AppCompatActivity {
     /*Find the requests of a user*/
     public void searchDatabaseForRequests() {
         //Get the visual elements
-        final RecyclerView recyclerView = findViewById(R.id.search_results);
+        ListView listView = findViewById(R.id.search_results);
         String input = ((EditText) findViewById(R.id.search_box)).getText().toString();
         final String currentUser = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        String[] foods = {"Bacon", "Ham", "Tuna", "Candy"};
+
+        ListAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_the_dashboard, foods);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            //
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //
+                Toast.makeText(getApplicationContext(),
+                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+                        .show();
+            }
+        });
+
 
         //Query the database
         DatabaseReference dr = Database.DATABASE.getReference().child("request");

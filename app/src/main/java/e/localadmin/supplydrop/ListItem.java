@@ -42,7 +42,7 @@ public class ListItem extends RecyclerView.Adapter<ListItem.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //TODO
+        holder.mTextView.setText(mDataset[position]);
     }
 
     @Override
