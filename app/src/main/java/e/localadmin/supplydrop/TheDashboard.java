@@ -142,8 +142,10 @@ public class TheDashboard extends AppCompatActivity {
             TextView description = findViewById(R.id.custom_description);
 
             //Set the text
-            header.setText(((String[]) timestamp.toArray())[position]);
-            description.setText(((String[]) items.toArray())[position]);
+            //header.setText(((String[]) timestamp.toArray())[position]);
+            //description.setText(((String[]) items.toArray())[position]);
+            header.setText("Timestamp Test");
+            description.setText("Description Test");
 
             return convertView;
         }
