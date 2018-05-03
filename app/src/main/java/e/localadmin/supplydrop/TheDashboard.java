@@ -17,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //Firebase imports
@@ -137,6 +138,14 @@ public class TheDashboard extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.customlayout, null);
+
+            //Get the TextView
+            TextView header = findViewById(R.id.custom_header);
+            TextView description = findViewById(R.id.custom_description);
+
+            //Set the text
+            header.setText("");
+            description.setText("");
 
             return convertView;
         }
