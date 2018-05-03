@@ -136,7 +136,9 @@ public class TheDashboard extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            convertView = getLayoutInflater().inflate(R.layout.customlayout, null);
+
+            return convertView;
         }
     }
 }
