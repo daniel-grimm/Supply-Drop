@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 //Firebase imports
@@ -35,7 +36,11 @@ public class TheDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_dashboard);
-        initializeGraphs();//Graph all of the data
+        initializeOverall();//Graph all of the data
+
+        ListView listView = findViewById(R.id.search_results);
+        CustomAdapater customAdapater = new CustomAdapater();
+        listView.setAdapter(customAdapater);
     }
 
     @Override
@@ -44,12 +49,6 @@ public class TheDashboard extends AppCompatActivity {
     /**Send the user to the map view.*/
     public void goToMap(View view) {
         startActivity(new Intent(TheDashboard.this, TheMap.class));
-    }
-
-    /*Initialize all of the graphs with data.*/
-    private void initializeGraphs() {
-        //initialize all graphs
-        initializeOverall();
     }
 
     private void initializeOverall() {
@@ -115,21 +114,23 @@ public class TheDashboard extends AppCompatActivity {
     /*T*/
     class CustomAdapater extends BaseAdapter {
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<String> timestamp = new ArrayList<>();
+        ArrayList<String> items = new ArrayList<>();
 
         @Override
         public int getCount() {
-            return arrayList.size();
+            return timestamp.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return arrayList.get(position);
+            String[] returnVal = { ((String[]) timestamp.toArray())[position], ((String[]) items.toArray())[position]};
+            return returnVal;
         }
 
         @Override
         public long getItemId(int position) {
-            return (long) arrayList.get(position).hashCode();
+            return (long) timestamp.get(position).hashCode();
         }
 
         @Override
@@ -141,8 +142,8 @@ public class TheDashboard extends AppCompatActivity {
             TextView description = findViewById(R.id.custom_description);
 
             //Set the text
-            header.setText("");
-            description.setText("");
+            header.setText(((String[]) timestamp.toArray())[position]);
+            description.setText(((String[]) items.toArray())[position]);
 
             return convertView;
         }
