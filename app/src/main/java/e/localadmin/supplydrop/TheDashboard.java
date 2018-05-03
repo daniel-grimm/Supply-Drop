@@ -11,17 +11,10 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //Firebase imports
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +27,7 @@ import com.jjoe64.graphview.series.BarGraphSeries;
 
 //Language imports
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class TheDashboard extends AppCompatActivity {
 
@@ -118,21 +112,24 @@ public class TheDashboard extends AppCompatActivity {
         });
     }
 
+    /*T*/
     class CustomAdapater extends BaseAdapter {
+
+        ArrayList<String> arrayList = new ArrayList<>();
 
         @Override
         public int getCount() {
-            return 0;
+            return arrayList.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return arrayList.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return (long) arrayList.get(position).hashCode();
         }
 
         @Override
