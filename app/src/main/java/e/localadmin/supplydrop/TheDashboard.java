@@ -32,17 +32,27 @@ import java.util.ArrayList;
 
 public class TheDashboard extends AppCompatActivity {
 
+    public ArrayList<String> headers = new ArrayList<>();
+    public ArrayList<String> description = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_dashboard);
+
+        headers.add("May 1");
+        description.add("stuff");
+        headers.add("May 2");
+        description.add("more stuff");
+
         initializeOverall();//Graph all of the data
 
         ListView listView = findViewById(R.id.search_results);
         CustomAdapater customAdapater = new CustomAdapater();
-        listView.setAdapter(customAdapater);
+        /*listView.setAdapter(customAdapater);*/
     }
 
+    //Don't allow the user to go back the previous page
     @Override
     public void onBackPressed() {}
 
@@ -111,11 +121,11 @@ public class TheDashboard extends AppCompatActivity {
         });
     }
 
-    /*T*/
+    /*This allows for a custom layout for the listveiew*/
     class CustomAdapater extends BaseAdapter {
 
-        ArrayList<String> timestamp = new ArrayList<>();
-        ArrayList<String> items = new ArrayList<>();
+        ArrayList<String> timestamp = headers;
+        ArrayList<String> items = description;
 
         @Override
         public int getCount() {
@@ -142,10 +152,8 @@ public class TheDashboard extends AppCompatActivity {
             TextView description = findViewById(R.id.custom_description);
 
             //Set the text
-            //header.setText(((String[]) timestamp.toArray())[position]);
-            //description.setText(((String[]) items.toArray())[position]);
-            header.setText("Timestamp Test");
-            description.setText("Description Test");
+            header.setText(((String[]) timestamp.toArray())[position]);
+            description.setText(((String[]) items.toArray())[position]);
 
             return convertView;
         }
