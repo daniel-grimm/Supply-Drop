@@ -48,7 +48,7 @@ public class TheDashboard extends AppCompatActivity {
         initializeOverall();//Graph all of the data
 
         ListView listView = findViewById(R.id.search_results);
-        CustomAdapater customAdapater = new CustomAdapater();
+
         /*listView.setAdapter(customAdapater);*/
     }
 
@@ -61,6 +61,7 @@ public class TheDashboard extends AppCompatActivity {
         startActivity(new Intent(TheDashboard.this, TheMap.class));
     }
 
+    //
     private void initializeOverall() {
         //TODO: Change to number of requests by day
         DatabaseReference dr = Database.DATABASE.getReference().child("request");
@@ -121,41 +122,4 @@ public class TheDashboard extends AppCompatActivity {
         });
     }
 
-    /*This allows for a custom layout for the listveiew*/
-    class CustomAdapater extends BaseAdapter {
-
-        ArrayList<String> timestamp = headers;
-        ArrayList<String> items = description;
-
-        @Override
-        public int getCount() {
-            return timestamp.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            String[] returnVal = { ((String[]) timestamp.toArray())[position], ((String[]) items.toArray())[position]};
-            return returnVal;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return (long) timestamp.get(position).hashCode();
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.customlayout, null);
-
-            //Get the TextView
-            TextView header = findViewById(R.id.custom_header);
-            TextView description = findViewById(R.id.custom_description);
-
-            //Set the text
-            header.setText(((String[]) timestamp.toArray())[position]);
-            description.setText(((String[]) items.toArray())[position]);
-
-            return convertView;
-        }
-    }
 }
