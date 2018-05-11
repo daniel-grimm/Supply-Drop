@@ -71,7 +71,8 @@
             android:name=".RequestSubmitted"
             android:label="@string/title_activity_request_submitted"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OutstandingRequests"></activity>
+        <activity android:name=".OutstandingRequests" />
+        <activity android:name=".RequestHistory"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RequestHistory">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/unfulfilled_request_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Requested Supplies"
+                android:textColor="@android:color/black"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/food_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Food"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/food_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/sleeping_stuff_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sleeping Stuff"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/sleeping_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/socks_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Socks"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/socks_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/underwear_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Underwear"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/underwear_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/coat_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coat"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/coat_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/toothbrush_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toothbrush"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/toothbrush_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/toothpaste_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toothpaste"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/toothpaste_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/soap_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soap"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/soap_stuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/delete_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete Request" />
+
+            <Button
+                android:id="@+id/go_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go Back" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
