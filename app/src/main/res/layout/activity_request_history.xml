@@ -192,12 +192,14 @@
                 android:id="@+id/delete_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="deleteRequest"
                 android:text="Delete Request" />
 
             <Button
                 android:id="@+id/go_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="goBack"
                 android:text="Go Back" />
         </LinearLayout>
     </ScrollView>
