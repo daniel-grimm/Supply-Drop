@@ -6,6 +6,7 @@
 package e.localadmin.supplydrop;
 
 //Android Imports
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -109,6 +110,6 @@ public class RequestHistory extends AppCompatActivity {
     }
 
     public void goBack(View view) {
-        //
+        startActivity(new Intent(RequestHistory.this, RequestForm.class));
     }
 }

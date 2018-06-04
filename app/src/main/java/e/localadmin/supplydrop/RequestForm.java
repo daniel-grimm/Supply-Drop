@@ -53,7 +53,6 @@ public class RequestForm extends AppCompatActivity {
             String key = mDatabase.child("request").push().getKey();
             mDatabase.child("request").child(key).setValue(request);
 
-
             //Load the request page again
             Intent newRequest = new Intent(RequestForm.this, RequestSubmitted.class);
             startActivity(newRequest);
@@ -65,7 +64,7 @@ public class RequestForm extends AppCompatActivity {
 
     /**/
     public void goToRequestHistory(View view) {
-        startActivity(new Intent(RequestForm.this, OutstandingRequests.class));
+        startActivity(new Intent(RequestForm.this, RequestHistory.class));
     }
 
     /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
@@ -91,23 +90,6 @@ public class RequestForm extends AppCompatActivity {
             }
         });
 
-        /*if (SupplyRequestLimits.NUM_FOOD <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_COATS <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_SLEEPING_MATERIALS <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_SOCKS <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_UNDERWEAR <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_TOOTHBRUSH <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_TOOTHPASTE <= 0) {
-            return false;
-        } else if (SupplyRequestLimits.NUM_SOAP <= 0) {
-            return false;
-        }*/
         return true;
     }
 
