@@ -1,6 +1,6 @@
 /*History of requests.
-*
-* @author Daniel Grimm*/
+ *
+ * @author Daniel Grimm*/
 
 //Default Package
 package e.localadmin.supplydrop;
@@ -28,6 +28,8 @@ public class RequestHistory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_history);
+
+        fillFields();
     }
 
     private void fillFields() {
@@ -106,7 +108,7 @@ public class RequestHistory extends AppCompatActivity {
     }
 
     public void deleteRequest(View view) {
-        //
+        //Get the value and tehn set it
     }
 
     public void goBack(View view) {

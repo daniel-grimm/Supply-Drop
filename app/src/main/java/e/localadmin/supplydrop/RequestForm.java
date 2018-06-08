@@ -47,7 +47,7 @@ public class RequestForm extends AppCompatActivity {
         Request request = new Request(food, sleepingStuff, socks, underwear, coat, toothbrush,
                 toothpaste, soap, location);
 
-        if (validateAmountsRequested()) {
+        if (!empty()) {
             //Add new request to the database
             DatabaseReference mDatabase = Database.DATABASE.getReference();
             String key = mDatabase.child("request").push().getKey();
@@ -65,32 +65,6 @@ public class RequestForm extends AppCompatActivity {
     /**/
     public void goToRequestHistory(View view) {
         startActivity(new Intent(RequestForm.this, RequestHistory.class));
-    }
-
-    /**Make sure that the user isn't getting too many supplies. Return true if the user hasn't
-     * requested too many supplies, else return false.*/
-    private boolean validateAmountsRequested() {
-        //If nothing entered into the supply form reject the request
-        if (empty()) {
-            return false;
-        }
-
-        DatabaseReference dr = Database.DATABASE.getReference().child("request");
-        Query query;
-        //TODO: Implement me
-        dr.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("", databaseError.toException());
-            }
-        });
-
-        return true;
     }
 
     /*If no values entered into the form then true is returned*/

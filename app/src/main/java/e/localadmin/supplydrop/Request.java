@@ -39,6 +39,7 @@ public class Request {
         map.put("location", location.getText().toString());
         map.put("user", FirebaseAuth.getInstance().getCurrentUser().getEmail());
         map.put("timestamp", new Date().toString());
+        map.put("closeDate", new Date(0, 0, 0).toString());
     }
 
     public Map<String, Object> getMap() {

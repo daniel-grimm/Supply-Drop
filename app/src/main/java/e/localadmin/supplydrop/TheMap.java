@@ -81,7 +81,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
+                /*Iterable<DataSnapshot> ds = dataSnapshot.getChildren();
                 for (DataSnapshot dataSnap : ds) {
                     HashMap<String, Object> wrapper = (HashMap<String, Object>) dataSnap.getValue();
                     HashMap<String, Object> map = (HashMap<String, Object>) wrapper.get("map");
@@ -113,7 +113,7 @@ public class TheMap extends FragmentActivity implements OnMapReadyCallback {
                             continue;//keep looping
                         }
                     }
-                }
+                }*/
             }
 
             @Override

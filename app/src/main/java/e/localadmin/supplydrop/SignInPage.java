@@ -54,17 +54,8 @@ public class SignInPage extends Activity {
         boolean clicked = ((CheckBox) findViewById(R.id.organization)).isChecked();
         boolean firstTime = false;
 
-        DatabaseReference mDatabase = Database.DATABASE.getReference();
-        String key = "";
-        key = mDatabase.child("item").push().getKey();
-        ItemType type = new ItemType("hygenic");
-        mDatabase.child("item").child(key).setValue(type);
-        key = mDatabase.child("organization").push().getKey();
-        mDatabase.child("organization").child(key).setValue(new Organization("UGM"));
-
         if (clicked) {
             if (firstTime) {
-
                 startActivity(new Intent(SignInPage.this, OrganizationGreeting.class));
             } else {
                 startActivity(new Intent(SignInPage.this, TheDashboard.class));
@@ -77,10 +68,5 @@ public class SignInPage extends Activity {
             }
 
         }
-    }
-
-    /**/
-    private void addUser() {
-        //
     }
 }
